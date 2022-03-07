@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="result"></div>
+
+</form>
+<script>
+// Check browser support
+if (typeof(Storage) !== "undefined") {
+  // Store
+  sessionStorage.setItem("firstname", "Aakash");
+  // Retrieve
+  document.getElementById("result").innerHTML = sessionStorage.getItem("firstname");
+} else {
+  document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <style>
+ body {background-color: aquamarine;
+
+ }</style>
+
+</head>
+<body> <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+<center>
+    <form>
+        <label><h3><b>Write below</b></h3></label>
+        Full Name :<input type="text" id="txt" name="txt" placeholder="Type here"></br></br>
+        Roll No. : <input type="textarea" id="no" name="no" placeholder="Type your Roll no. here"><br></br>
+        Mobile No. : <input type="number" id="mobno" name="mobno" placeholder="Enter your mobile number"></br></br>
+        Class : <input type="textarea" id="cl" class="cl" placeholder="Type your class here">
+                <button type="button" id="btn" onclick="thisfunction()">Click here to submit</button>
+        
+        
+
+    
+    </form>
+</center>
+<script>
+    function thisfunction() {
+    document.getElementById("demo1").value = "txt"
+    document.getElementById("demo2").value = "no"
+    document.getElementById("demo3").value = "mobno"
+    document.getElementById("demo4").value = "cl"
+    }
+</script>
+</body>
+</html>

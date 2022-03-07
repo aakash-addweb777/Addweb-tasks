@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Slider</title>
+    <style>
+        body{
+            background: rgba(47, 53, 58, 0.85);
+        }
+        h1
+        {
+            text-align: center;
+            letter-spacing: 0.3em;
+            font-size: 40px;
+            margin-top: 50px;
+            color:whitesmoke;
+
+        }
+        .maindiv{
+            width: 70%;
+            height: 400px;
+            position:absolute;
+            transform:translate(-50% , -50%);
+            left: 50%;
+            top: 50%;
+            background-image: url("/01-03-2022/pexels-anna-kozlova-10183979.jpg");
+            animation:slider 9s infinite linear;
+        }
+        @keyframes slider{
+            0%{  background-image: url("/download.jpeg");}
+            25%{background-image: url("/image1.jpeg");}
+            75%{background-image: url("/images.jpeg");}   
+        }
+    </style>
+    </head>
+    <body>
+        <h1></h1>
+        <div class="maindiv">
+
+        </div>
+    </body>
+</html>

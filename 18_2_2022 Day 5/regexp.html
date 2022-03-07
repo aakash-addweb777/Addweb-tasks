@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var text = "Hello there! My name is ---";
+        var pattern= /is/g;
+        var r= text.match(pattern);
+        document.write(r); 
+                     
+        var txt = "Hello there! My name is ---";
+        var pattrn= /is/i;
+        var res= text.match(pattrn);
+        document.write(res);
+
+        var tx = "Hello there! My name is ---";
+        var pttrn= /is/m;
+        var reslt= text.match(pttrn);
+        document.write(reslt);
+
+        var t = "Hello there! My name is ---";
+        var pttn= /[^My]/g;
+        var result= text.match(pttn);
+        document.write(result);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
