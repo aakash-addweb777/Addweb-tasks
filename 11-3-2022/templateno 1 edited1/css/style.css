@@ -5,13 +5,13 @@
 }
 body {
   font-family: 'Montserrat', sans-serif;
-  color: #a77272;
-  background-color: #a38574;
+  color: #927676;
+  background-color: #e1d7d7;
   overflow-x: hidden;
 }
 
 .layout_padding {
-  padding: 70px 0;
+  padding: 62px 0;
 }
 
 .layout_padding2 {
@@ -292,9 +292,9 @@ a:focus {
 .slider_section .detail-box a {
     display: inline-block;
     padding: 12px 45px;
-    background-color: #f7444e;
-    border: 1px solid #f7444e;
-    color: #ffffff;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    color:#ff1515;
     border-radius: 0;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
@@ -554,7 +554,7 @@ a:focus {
 .arrival_section a {
   display: inline-block;
   padding: 10px 45px;
-  background-color: #252324;
+  background-color: #ffffff;
   border: 1px solid #252324;
   color: #ffffff;
   border-radius: 0;
@@ -600,8 +600,10 @@ a:focus {
 }
 
 .subscribe_section .box {
-  background-color: #d4ced0;
+  background-color: #d8cbba;
   padding: 75px 45px;
+  border: 1px solid #252324;
+  
 }
 
 .subscribe_section .subscribe_form .heading_container {
@@ -761,7 +763,7 @@ a:focus {
 
 .client_section .carousel-control-prev,
 .client_section .carousel-control-next {
-  top: 43%;
+  top: 0%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   opacity: 1;
@@ -792,7 +794,7 @@ a:focus {
 .footer_section {
   background-color: #002c3e;
   color: #ffffff;
-  padding-top: 70px;
+  padding-top: 50px;
 }
 
 .footer_section {
@@ -976,7 +978,7 @@ li.nav-item ul li a:hover, li.nav-item ul li a:focus {
 
 footer {
     background: #f8f8f8;
-    padding: 337px 0 63px; 
+    padding: 92px 0 63px; 
     margin-left: 2px;
 }
 
