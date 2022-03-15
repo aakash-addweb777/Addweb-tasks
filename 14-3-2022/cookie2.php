@@ -11,9 +11,3 @@ if(!empty($_POST["remember"])) {
 
 
 ?>
-<html>
-	<head></head>
-	<body>
-	
-	</body>
-</html>
