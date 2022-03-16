@@ -17,7 +17,7 @@ else
 if($_POST['logout']) {
 
        header('Location:cookielogin.php');
-       setcookie("NAME",$_POST['fname'],time() -20764);
+       setcookie("NAME",$_POST['fname'],time()-20764);
    }
 
 
