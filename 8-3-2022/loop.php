@@ -7,6 +7,6 @@ for ($i=1;$i<=$n;$i++)
     
     
 }
-echo "fectorial is $c";
+echo "factorial is $c";
 
 ?>
