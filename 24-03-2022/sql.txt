@@ -1,0 +1,1605 @@
+akash@aakash-HP-Pavilion-x360-Convertible-14-dh1xxx:~$ sudo /opt/lampp/bin/mysql -u root -p
+[sudo] password for aakash: 
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 1633
+Server version: 10.4.22-MariaDB Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| base24             |
+| information_schema |
+| mysql              |
+| neflix             |
+| performance_schema |
+| phpmyadmin         |
+| sampledb           |
+| table1             |
+| table2             |
+| table4             |
+| test               |
++--------------------+
+11 rows in set (0.001 sec)
+
+MariaDB [(none)]> use base24;
+Database changed
+MariaDB [base24]> create table govsector(employid bigint(20),name varchar(20),annualsalary int(7),workingplace varchar(10),employjob varchar(20));
+Query OK, 0 rows affected (0.030 sec)
+
+MariaDB [base24]> insert into govsector(employid,name,annualsalary,workingplace,employjob)
+    -> values(1001,'Aakash chamoli',2000000,'no10','software engineer');
+Query OK, 1 row affected (0.012 sec)
+
+MariaDB [base24]> show tables;
++------------------+
+| Tables_in_base24 |
++------------------+
+| govsector        |
++------------------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------------+--------------+-------------------+
+| employid | name           | annualsalary | workingplace | employjob         |
++----------+----------------+--------------+--------------+-------------------+
+|     1001 | Aakash chamoli |      2000000 | no10         | software engineer |
++----------+----------------+--------------+--------------+-------------------+
+1 row in set (0.008 sec)
+
+MariaDB [base24]> alter table govsector add details varchar(50);
+Query OK, 0 rows affected (0.016 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------------+--------------+-------------------+---------+
+| employid | name           | annualsalary | workingplace | employjob         | details |
++----------+----------------+--------------+--------------+-------------------+---------+
+|     1001 | Aakash chamoli |      2000000 | no10         | software engineer | NULL    |
++----------+----------------+--------------+--------------+-------------------+---------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> insert into govsector(employid,name,annualsalary,workingplace,employjob) values(1001,'Aakash chamoli',2000000,'no10','software engineer','good working habit');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------------+--------------+-------------------+---------+
+| employid | name           | annualsalary | workingplace | employjob         | details |
++----------+----------------+--------------+--------------+-------------------+---------+
+|     1001 | Aakash chamoli |      2000000 | no10         | software engineer | NULL    |
++----------+----------------+--------------+--------------+-------------------+---------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------------+--------------+-------------------+---------+
+| employid | name           | annualsalary | workingplace | employjob         | details |
++----------+----------------+--------------+--------------+-------------------+---------+
+|     1001 | Aakash chamoli |      2000000 | no10         | software engineer | NULL    |
++----------+----------------+--------------+--------------+-------------------+---------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> insert into govsector(employid,name,annualsalary,workingplace,employjob) values(1001,'Aakash chamoli',2000000,'no10','software engineer','good');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+MariaDB [base24]> drop table govsector;
+Query OK, 0 rows affected (0.020 sec)
+
+MariaDB [base24]> show tables;
+Empty set (0.000 sec)
+
+MariaDB [base24]> create table govsector(employid bigint(20),name varchar(20),salary int(10),annualsalary int(7),workingplace varchar(10),employjob varchar(20));
+Query OK, 0 rows affected (0.022 sec)
+
+MariaDB [base24]> insert into govsector(employid,name,salary,annualsalary,workingplace,employjob) values(1001,'Aakash chamoli',200000,2000000,'no10','software engineer');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+-------------------+
+| employid | name           | salary | annualsalary | workingplace | employjob         |
++----------+----------------+--------+--------------+--------------+-------------------+
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer |
++----------+----------------+--------+--------------+--------------+-------------------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> insert into govsector(employid,name,salary,annualsalary,workingplace,employjob) values(1002,'jatin',12000,120000,'no9','system administrator');
+Query OK, 1 row affected (0.011 sec)
+
+MariaDB [base24]> insert into govsector(employid,name,salary,annualsalary,workingplace,employjob) values(1003,'ronak',15000,150000,'no8','database engineer');
+Query OK, 1 row affected (0.011 sec)
+
+MariaDB [base24]> insert into govsector(employid,name,salary,annualsalary,workingplace,employjob) values(1004,'somay',16000,160000,'no10','frontend developer');
+Query OK, 1 row affected (0.011 sec)
+
+MariaDB [base24]> insert into govsector(employid,name,salary,annualsalary,workingplace,employjob) values(1005,'nitin',17000,170000,'no7','frontend developer');
+Query OK, 1 row affected (0.011 sec)
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+
+| employid | name           | salary | annualsalary | workingplace | employjob            |
++----------+----------------+--------+--------------+--------------+----------------------+
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   |
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   |
++----------+----------------+--------+--------------+--------------+----------------------+
+5 rows in set (0.001 sec)
+
+MariaDB [base24]> select name,job from govsector;
+ERROR 1054 (42S22): Unknown column 'job' in 'field list'
+MariaDB [base24]> select name, employjob from govsector;
++----------------+----------------------+
+| name           | employjob            |
++----------------+----------------------+
+| Aakash chamoli | software engineer    |
+| jatin          | system administrator |
+| ronak          | database engineer    |
+| somay          | frontend developer   |
+| nitin          | frontend developer   |
++----------------+----------------------+
+5 rows in set (0.001 sec)
+
+MariaDB [base24]> select name, salary from govsector;
++----------------+--------+
+| name           | salary |
++----------------+--------+
+| Aakash chamoli | 200000 |
+| jatin          |  12000 |
+| ronak          |  15000 |
+| somay          |  16000 |
+| nitin          |  17000 |
++----------------+--------+
+5 rows in set (0.001 sec)
+
+MariaDB [base24]> select employid, annualsalary from govsector;
++----------+--------------+
+| employid | annualsalary |
++----------+--------------+
+|     1001 |      2000000 |
+|     1002 |       120000 |
+|     1003 |       150000 |
+|     1004 |       160000 |
+|     1005 |       170000 |
++----------+--------------+
+5 rows in set (0.001 sec)
+
+MariaDB [base24]> select name, annualsalary from govsector;
++----------------+--------------+
+| name           | annualsalary |
++----------------+--------------+
+| Aakash chamoli |      2000000 |
+| jatin          |       120000 |
+| ronak          |       150000 |
+| somay          |       160000 |
+| nitin          |       170000 |
++----------------+--------------+
+5 rows in set (0.001 sec)
+
+MariaDB [base24]> select workingplace from govsector;
++--------------+
+| workingplace |
++--------------+
+| no10         |
+| no9          |
+| no8          |
+| no10         |
+| no7          |
++--------------+
+5 rows in set (0.001 sec)
+
+MariaDB [base24]> select workingplace(no10) from govsector;
+ERROR 1558 (HY000): Column count of mysql.proc is wrong. Expected 21, found 20. Created with MariaDB 100108, now running 100422. Please use mysql_upgrade to fix this error
+MariaDB [base24]> select * from govsector where workingplace=no10;
+ERROR 1054 (42S22): Unknown column 'no10' in 'where clause'
+MariaDB [base24]> select * from govsector where workingplace='no10';
++----------+----------------+--------+--------------+--------------+--------------------+
+| employid | name           | salary | annualsalary | workingplace | employjob          |
++----------+----------------+--------+--------------+--------------+--------------------+
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer  |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer |
++----------+----------------+--------+--------------+--------------+--------------------+
+2 rows in set (0.001 sec)
+
+MariaDB [base24]> alter table govsector add commision varchar(10);
+Query OK, 0 rows affected (0.011 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | NULL      |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | NULL      |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | NULL      |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | NULL      |
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | NULL      |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+
+5 rows in set (0.001 sec)
+
+MariaDB [base24]> insert into govsector(employid,name,salary,annualsalary,workingplace,employjob,commision) values(1006,'harsh',18000,180000,'no9','frontend developer','yes');
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | NULL      |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | NULL      |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | NULL      |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | NULL      |
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | NULL      |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | yes       |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+
+6 rows in set (0.001 sec)
+
+MariaDB [base24]> insert into govsector(employid,name,salary,annualsalary,workingplace,employjob) values(1004,'somay',16000,160000,'no10','frontend developer','no');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+MariaDB [base24]> insert into govsector(employid,name,salary,annualsalary,workingplace,employjob,commision) values(1004,'somay',16000,160000,'no10','frontend developer','no');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [base24]> insert into govsector(employid,name,salary,annualsalary,workingplace,employjob,commision) values(1003,'ronak',15000,150000,'no8','database engineer','yes');
+Query OK, 1 row affected (0.011 sec)
+
+MariaDB [base24]> insert into govsector(employid,name,salary,annualsalary,workingplace,employjob,commision) values(1002,'jatin',12000,120000,'no9','system administrator','no');
+Query OK, 1 row affected (0.011 sec)
+
+MariaDB [base24]> insert into govsector(employid,name,salary,annualsalary,workingplace,employjob,commision) values(1001,'Aakash chamoli',200000,2000000,'no10','software engineer','yes');
+Query OK, 1 row affected (0.011 sec)
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | NULL      |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | NULL      |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | NULL      |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | NULL      |
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | NULL      |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | yes       |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | no        |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | yes       |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+
+10 rows in set (0.001 sec)
+
+MariaDB [base24]> select * from govsector where commision is yes;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'yes' at line 1
+MariaDB [base24]> select * from govsector where commision='yes';
++----------+----------------+--------+--------------+--------------+--------------------+-----------+
+| employid | name           | salary | annualsalary | workingplace | employjob          | commision |
++----------+----------------+--------+--------------+--------------+--------------------+-----------+
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer | yes       |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer  | yes       |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer  | yes       |
++----------+----------------+--------+--------------+--------------+--------------------+-----------+
+3 rows in set (0.001 sec)
+
+MariaDB [base24]> select * from govsector where commision='no';
++----------+-------+--------+--------------+--------------+----------------------+-----------+
+| employid | name  | salary | annualsalary | workingplace | employjob            | commision |
++----------+-------+--------+--------------+--------------+----------------------+-----------+
+|     1004 | somay |  16000 |       160000 | no10         | frontend developer   | no        |
+|     1002 | jatin |  12000 |       120000 | no9          | system administrator | no        |
++----------+-------+--------+--------------+--------------+----------------------+-----------+
+2 rows in set (0.001 sec)
+
+MariaDB [base24]> create table department;
+ERROR 1113 (42000): A table must have at least 1 column
+MariaDB [base24]> drop table department;
+ERROR 1051 (42S02): Unknown table 'base24.department'
+MariaDB [base24]> update govsector set commision='no';
+Query OK, 8 rows affected (0.007 sec)
+Rows matched: 10  Changed: 8  Warnings: 0
+
+MariaDB [base24]> update govsector set commision='no' where employid=1001;
+Query OK, 0 rows affected (0.001 sec)
+Rows matched: 2  Changed: 0  Warnings: 0
+
+MariaDB [base24]> update govsector set commision='no' where employid=1002;
+Query OK, 0 rows affected (0.001 sec)
+Rows matched: 2  Changed: 0  Warnings: 0
+
+MariaDB [base24]> update govsector set commision='yes' where employid=1003;
+Query OK, 2 rows affected (0.011 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+MariaDB [base24]> update govsector set commision='yes' where employid=1004;
+Query OK, 2 rows affected (0.011 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+MariaDB [base24]> update govsector set commision='no' where employid=1005;
+Query OK, 0 rows affected (0.001 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+MariaDB [base24]> delete govsector where id=1001;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'where id=1001' at line 1
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | no        |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | yes       |
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | no        |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | no        |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | yes       |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | no        |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+
+10 rows in set (0.001 sec)
+
+MariaDB [base24]> delete govsector where employid=1001;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'where employid=1001' at line 1
+MariaDB [base24]> delete from  govsector where employid=1001;
+Query OK, 2 rows affected (0.007 sec)
+
+MariaDB [base24]> select * from govsector;
++----------+-------+--------+--------------+--------------+----------------------+-----------+
+| employid | name  | salary | annualsalary | workingplace | employjob            | commision |
++----------+-------+--------+--------------+--------------+----------------------+-----------+
+|     1002 | jatin |  12000 |       120000 | no9          | system administrator | no        |
+|     1003 | ronak |  15000 |       150000 | no8          | database engineer    | yes       |
+|     1004 | somay |  16000 |       160000 | no10         | frontend developer   | yes       |
+|     1005 | nitin |  17000 |       170000 | no7          | frontend developer   | no        |
+|     1006 | harsh |  18000 |       180000 | no9          | frontend developer   | no        |
+|     1004 | somay |  16000 |       160000 | no10         | frontend developer   | yes       |
+|     1003 | ronak |  15000 |       150000 | no8          | database engineer    | yes       |
+|     1002 | jatin |  12000 |       120000 | no9          | system administrator | no        |
++----------+-------+--------+--------------+--------------+----------------------+-----------+
+8 rows in set (0.001 sec)
+
+MariaDB [base24]> update govesector set commision='yes' where employid=1002;
+ERROR 1146 (42S02): Table 'base24.govesector' doesn't exist
+MariaDB [base24]> select * from govsector;
++----------+-------+--------+--------------+--------------+----------------------+-----------+
+| employid | name  | salary | annualsalary | workingplace | employjob            | commision |
++----------+-------+--------+--------------+--------------+----------------------+-----------+
+|     1002 | jatin |  12000 |       120000 | no9          | system administrator | no        |
+|     1003 | ronak |  15000 |       150000 | no8          | database engineer    | yes       |
+|     1004 | somay |  16000 |       160000 | no10         | frontend developer   | yes       |
+|     1005 | nitin |  17000 |       170000 | no7          | frontend developer   | no        |
+|     1006 | harsh |  18000 |       180000 | no9          | frontend developer   | no        |
+|     1004 | somay |  16000 |       160000 | no10         | frontend developer   | yes       |
+|     1003 | ronak |  15000 |       150000 | no8          | database engineer    | yes       |
+|     1002 | jatin |  12000 |       120000 | no9          | system administrator | no        |
++----------+-------+--------+--------------+--------------+----------------------+-----------+
+8 rows in set (0.001 sec)
+
+MariaDB [base24]> update govsector set commision='yes' where employid=1002;
+Query OK, 2 rows affected (0.011 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+MariaDB [base24]> select * from govsector;
++----------+-------+--------+--------------+--------------+----------------------+-----------+
+| employid | name  | salary | annualsalary | workingplace | employjob            | commision |
++----------+-------+--------+--------------+--------------+----------------------+-----------+
+|     1002 | jatin |  12000 |       120000 | no9          | system administrator | yes       |
+|     1003 | ronak |  15000 |       150000 | no8          | database engineer    | yes       |
+|     1004 | somay |  16000 |       160000 | no10         | frontend developer   | yes       |
+|     1005 | nitin |  17000 |       170000 | no7          | frontend developer   | no        |
+|     1006 | harsh |  18000 |       180000 | no9          | frontend developer   | no        |
+|     1004 | somay |  16000 |       160000 | no10         | frontend developer   | yes       |
+|     1003 | ronak |  15000 |       150000 | no8          | database engineer    | yes       |
+|     1002 | jatin |  12000 |       120000 | no9          | system administrator | yes       |
++----------+-------+--------+--------------+--------------+----------------------+-----------+
+8 rows in set (0.001 sec)
+
+MariaDB [base24]> delete from govsector where employid=1002;
+Query OK, 2 rows affected (0.011 sec)
+
+MariaDB [base24]> delete from govsector where employid=1003;
+Query OK, 2 rows affected (0.011 sec)
+
+MariaDB [base24]> delete from govsector where employid=1004;
+Query OK, 2 rows affected (0.011 sec)
+
+MariaDB [base24]> select * from govsector;
++----------+-------+--------+--------------+--------------+--------------------+-----------+
+| employid | name  | salary | annualsalary | workingplace | employjob          | commision |
++----------+-------+--------+--------------+--------------+--------------------+-----------+
+|     1005 | nitin |  17000 |       170000 | no7          | frontend developer | no        |
+|     1006 | harsh |  18000 |       180000 | no9          | frontend developer | no        |
++----------+-------+--------+--------------+--------------+--------------------+-----------+
+2 rows in set (0.001 sec)
+
+MariaDB [base24]> insert into govsector(employid,name,salary,annualsalary,workingplace,employjob,commision) values(1001,'Aakash chamoli',200000,2000000,'no10','software engineer','yes');
+Query OK, 1 row affected (0.011 sec)
+
+MariaDB [base24]> insert into govsector(employid,name,salary,annualsalary,workingplace,employjob,commision) values(1002,'jatin',12000,120000,'no9','system administrator','no');
+Query OK, 1 row affected (0.011 sec)
+
+MariaDB [base24]> insert into govsector(employid,name,salary,annualsalary,workingplace,employjob,commision) values(1003,'ronak',15000,150000,'no8','database engineer','yes');
+Query OK, 1 row affected (0.011 sec)
+
+MariaDB [base24]> insert into govsector(employid,name,salary,annualsalary,workingplace,employjob,commision) values(1004,'somay',16000,160000,'no10','frontend developer','no');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | no        |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | no        |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | yes       |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | no        |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+
+6 rows in set (0.001 sec)
+
+MariaDB [base24]> insert into govsector(employid,name,salary,annualsalary,workingplace,employjob,commision) values(1007,'jai',4000,40000,'no8','clerk','no');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [base24]> insert into govsector(employid,name,salary,annualsalary,workingplace,employjob,commision) values(1008,'shubham',4000,40000,'no8','clerk','no');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [base24]> insert into govsector(employid,name,salary,annualsalary,workingplace,employjob,commision) values(1009,'prakash',2500,25000,'no10','clerk','no');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | no        |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | no        |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | yes       |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | no        |
+|     1007 | jai            |   4000 |        40000 | no8          | clerk                | no        |
+|     1008 | shubham        |   4000 |        40000 | no8          | clerk                | no        |
+|     1009 | prakash        |   2500 |        25000 | no10         | clerk                | no        |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+
+9 rows in set (0.000 sec)
+
+MariaDB [base24]> select * from govsector where employjob='clerk' and salary>3000;
++----------+---------+--------+--------------+--------------+-----------+-----------+
+| employid | name    | salary | annualsalary | workingplace | employjob | commision |
++----------+---------+--------+--------------+--------------+-----------+-----------+
+|     1007 | jai     |   4000 |        40000 | no8          | clerk     | no        |
+|     1008 | shubham |   4000 |        40000 | no8          | clerk     | no        |
++----------+---------+--------+--------------+--------------+-----------+-----------+
+2 rows in set (0.001 sec)
+
+MariaDB [base24]> alter table govsector add experience_in_yrs varchar(20);
+Query OK, 0 rows affected (0.015 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision | experience_in_yrs |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | no        | NULL              |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | no        | NULL              |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | yes       | NULL              |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        | NULL              |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       | NULL              |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | no        | NULL              |
+|     1007 | jai            |   4000 |        40000 | no8          | clerk                | no        | NULL              |
+|     1008 | shubham        |   4000 |        40000 | no8          | clerk                | no        | NULL              |
+|     1009 | prakash        |   2500 |        25000 | no10         | clerk                | no        | NULL              |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+
+9 rows in set (0.001 sec)
+
+MariaDB [base24]> update govsector set experience_in_yrs=5 where eorkingplace='no8';
+ERROR 1054 (42S22): Unknown column 'eorkingplace' in 'where clause'
+MariaDB [base24]> update govsector set experience_in_yrs=5 where workingplace='no8';
+Query OK, 3 rows affected (0.007 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+MariaDB [base24]> update govsector set experience_in_yrs=3 where workingplace='no10';
+Query OK, 3 rows affected (0.014 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+MariaDB [base24]> update govsector set experience_in_yrs=10 where workingplace='no7';
+Query OK, 1 row affected (0.007 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [base24]> update govsector set experience_in_yrs=6 where workingplace='no9';
+Query OK, 2 rows affected (0.011 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision | experience_in_yrs |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | no        | 10                |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | no        | 6                 |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | yes       | 3                 |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        | 6                 |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       | 5                 |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | no        | 3                 |
+|     1007 | jai            |   4000 |        40000 | no8          | clerk                | no        | 5                 |
+|     1008 | shubham        |   4000 |        40000 | no8          | clerk                | no        | 5                 |
+|     1009 | prakash        |   2500 |        25000 | no10         | clerk                | no        | 3                 |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+
+9 rows in set (0.001 sec)
+
+MariaDB [base24]> select * from govsector where experience_in_yrs=5;
++----------+---------+--------+--------------+--------------+-------------------+-----------+-------------------+
+| employid | name    | salary | annualsalary | workingplace | employjob         | commision | experience_in_yrs |
++----------+---------+--------+--------------+--------------+-------------------+-----------+-------------------+
+|     1003 | ronak   |  15000 |       150000 | no8          | database engineer | yes       | 5                 |
+|     1007 | jai     |   4000 |        40000 | no8          | clerk             | no        | 5                 |
+|     1008 | shubham |   4000 |        40000 | no8          | clerk             | no        | 5                 |
++----------+---------+--------+--------------+--------------+-------------------+-----------+-------------------+
+3 rows in set (0.001 sec)
+
+MariaDB [base24]> alter table govsector add date_of_joining varchar(30);
+Query OK, 0 rows affected (0.015 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [base24]> update govsector set date_of_joining='21 aprail' where workingplace='no7';
+Query OK, 1 row affected (0.007 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [base24]> update govsector set date_of_joining='25th june' where workingplace='no8';
+Query OK, 3 rows affected (0.011 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+MariaDB [base24]> update govsector set date_of_joining='25th july' where workingplace='no9';
+Query OK, 2 rows affected (0.007 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+MariaDB [base24]> update govsector set date_of_joining='1 january' where workingplace='no10';
+Query OK, 3 rows affected (0.011 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision | experience_in_yrs | date_of_joining |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | no        | 10                | 21 aprail       |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | no        | 6                 | 25th july       |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | yes       | 3                 | 1 january       |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        | 6                 | 25th july       |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       | 5                 | 25th june       |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | no        | 3                 | 1 january       |
+|     1007 | jai            |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       |
+|     1008 | shubham        |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       |
+|     1009 | prakash        |   2500 |        25000 | no10         | clerk                | no        | 3                 | 1 january       |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+9 rows in set (0.001 sec)
+
+MariaDB [base24]> update govsector set date_of_joining='30TH june' where workingplace='n07'
+    -> update govsector set date_of_joining='30TH june' where workingplace='n07';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'update govsector set date_of_joining='30TH june' where workingplace='n07'' at line 2
+MariaDB [base24]> update govsector set date_of_joining='30TH june' where workingplace='n07';
+Query OK, 0 rows affected (0.001 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+MariaDB [base24]> update govsector set date_of_joining='31st dec' where workingplace='n08';
+Query OK, 0 rows affected (0.001 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+MariaDB [base24]> update govsector set date_of_joining='21st aprail' where workingplace='n010';
+Query OK, 0 rows affected (0.001 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+MariaDB [base24]> update govsector set date_of_joining='25th june' where workingplace='n09';
+Query OK, 0 rows affected (0.001 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision | experience_in_yrs | date_of_joining |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | no        | 10                | 21 aprail       |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | no        | 6                 | 25th july       |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | yes       | 3                 | 1 january       |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        | 6                 | 25th july       |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       | 5                 | 25th june       |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | no        | 3                 | 1 january       |
+|     1007 | jai            |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       |
+|     1008 | shubham        |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       |
+|     1009 | prakash        |   2500 |        25000 | no10         | clerk                | no        | 3                 | 1 january       |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+9 rows in set (0.001 sec)
+
+MariaDB [base24]> update govsector set date_of_joining='25th june' where workingplace=n09;
+ERROR 1054 (42S22): Unknown column 'n09' in 'where clause'
+MariaDB [base24]> update govsector set date_of_joining='25th june' where workingplace='n09';
+Query OK, 0 rows affected (0.001 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision | experience_in_yrs | date_of_joining |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | no        | 10                | 21 aprail       |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | no        | 6                 | 25th july       |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | yes       | 3                 | 1 january       |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        | 6                 | 25th july       |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       | 5                 | 25th june       |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | no        | 3                 | 1 january       |
+|     1007 | jai            |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       |
+|     1008 | shubham        |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       |
+|     1009 | prakash        |   2500 |        25000 | no10         | clerk                | no        | 3                 | 1 january       |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+9 rows in set (0.001 sec)
+
+MariaDB [base24]> select * from govsector where date_of_joining<'25th june';
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision | experience_in_yrs | date_of_joining |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | no        | 10                | 21 aprail       |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | no        | 6                 | 25th july       |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | yes       | 3                 | 1 january       |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        | 6                 | 25th july       |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | no        | 3                 | 1 january       |
+|     1009 | prakash        |   2500 |        25000 | no10         | clerk                | no        | 3                 | 1 january       |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+6 rows in set (0.001 sec)
+
+MariaDB [base24]> select * from govsector where date_of_joining<'25th june' and date_of_joining>'1 january';
++----------+-------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+| employid | name  | salary | annualsalary | workingplace | employjob            | commision | experience_in_yrs | date_of_joining |
++----------+-------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+|     1005 | nitin |  17000 |       170000 | no7          | frontend developer   | no        | 10                | 21 aprail       |
+|     1006 | harsh |  18000 |       180000 | no9          | frontend developer   | no        | 6                 | 25th july       |
+|     1002 | jatin |  12000 |       120000 | no9          | system administrator | no        | 6                 | 25th july       |
++----------+-------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+3 rows in set (0.001 sec)
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision | experience_in_yrs | date_of_joining |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | no        | 10                | 21 aprail       |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | no        | 6                 | 25th july       |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | yes       | 3                 | 1 january       |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        | 6                 | 25th july       |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       | 5                 | 25th june       |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | no        | 3                 | 1 january       |
+|     1007 | jai            |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       |
+|     1008 | shubham        |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       |
+|     1009 | prakash        |   2500 |        25000 | no10         | clerk                | no        | 3                 | 1 january       |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+9 rows in set (0.001 sec)
+
+MariaDB [base24]> select sysdate();
++---------------------+
+| sysdate()           |
++---------------------+
+| 2022-03-24 15:57:44 |
++---------------------+
+1 row in set (0.000 sec)
+
+MariaDB [base24]> select current_user();
++----------------+
+| current_user() |
++----------------+
+| root@localhost |
++----------------+
+1 row in set (0.000 sec)
+
+MariaDB [base24]> insert into govsector(employid,name,salary,annualsalary,workingplace,employjob,commision,experience_in_yrs,date_of_joining) values(1010,'raj',4000,40000,'no20','salesman','no');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+MariaDB [base24]> insert into govsector(employid,name,salary,annualsalary,workingplace,employjob,commision,experience_in_yrs,date_of_joining) values(1010,'raj',4000,40000,'no20','salesman','no',3,'21st aprail');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [base24]> insert into govsector(employid,name,salary,annualsalary,workingplace,employjob,commision,experience_in_yrs,date_of_joining) values(1011,'mukul',4000,40000,'no40','analyst','no',3,'21st aprail');
+Query OK, 1 row affected (0.011 sec)
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision | experience_in_yrs | date_of_joining |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | no        | 10                | 21 aprail       |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | no        | 6                 | 25th july       |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | yes       | 3                 | 1 january       |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        | 6                 | 25th july       |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       | 5                 | 25th june       |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | no        | 3                 | 1 january       |
+|     1007 | jai            |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       |
+|     1008 | shubham        |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       |
+|     1009 | prakash        |   2500 |        25000 | no10         | clerk                | no        | 3                 | 1 january       |
+|     1010 | raj            |   4000 |        40000 | no20         | salesman             | no        | 3                 | 21st aprail     |
+|     1011 | mukul          |   4000 |        40000 | no40         | analyst              | no        | 3                 | 21st aprail     |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select * from govsector where workingplace='no10' and workingplace='no20' and workingplace='no40' and employjob='clerk' and employjob='analyst' and employjob='salesman';
+Empty set (0.001 sec)
+
+MariaDB [base24]> select * from govsector where workingplace in (no10,no20,no40) or employ_job in(clerk,analyst,salesman);
+ERROR 1054 (42S22): Unknown column 'no10' in 'where clause'
+MariaDB [base24]> select * from govsector where employejob in ('salesman','clerks','analyst');
+ERROR 1054 (42S22): Unknown column 'employejob' in 'where clause'
+MariaDB [base24]> select * from govsector where employjob in ('salesman','clerks','analyst');
++----------+-------+--------+--------------+--------------+-----------+-----------+-------------------+-----------------+
+| employid | name  | salary | annualsalary | workingplace | employjob | commision | experience_in_yrs | date_of_joining |
++----------+-------+--------+--------------+--------------+-----------+-----------+-------------------+-----------------+
+|     1010 | raj   |   4000 |        40000 | no20         | salesman  | no        | 3                 | 21st aprail     |
+|     1011 | mukul |   4000 |        40000 | no40         | analyst   | no        | 3                 | 21st aprail     |
++----------+-------+--------+--------------+--------------+-----------+-----------+-------------------+-----------------+
+2 rows in set (0.001 sec)
+
+MariaDB [base24]> select * from govsector where employjob in ('salesman','clerks','analyst') and workingplace in ('no10','no20','no40');
++----------+-------+--------+--------------+--------------+-----------+-----------+-------------------+-----------------+
+| employid | name  | salary | annualsalary | workingplace | employjob | commision | experience_in_yrs | date_of_joining |
++----------+-------+--------+--------------+--------------+-----------+-----------+-------------------+-----------------+
+|     1010 | raj   |   4000 |        40000 | no20         | salesman  | no        | 3                 | 21st aprail     |
+|     1011 | mukul |   4000 |        40000 | no40         | analyst   | no        | 3                 | 21st aprail     |
++----------+-------+--------+--------------+--------------+-----------+-----------+-------------------+-----------------+
+2 rows in set (0.001 sec)
+
+MariaDB [base24]> select * from govsector where employjob in ('salesman','clerk','analyst') and workingplace in ('no10','no20','no40');
++----------+---------+--------+--------------+--------------+-----------+-----------+-------------------+-----------------+
+| employid | name    | salary | annualsalary | workingplace | employjob | commision | experience_in_yrs | date_of_joining |
++----------+---------+--------+--------------+--------------+-----------+-----------+-------------------+-----------------+
+|     1009 | prakash |   2500 |        25000 | no10         | clerk     | no        | 3                 | 1 january       |
+|     1010 | raj     |   4000 |        40000 | no20         | salesman  | no        | 3                 | 21st aprail     |
+|     1011 | mukul   |   4000 |        40000 | no40         | analyst   | no        | 3                 | 21st aprail     |
++----------+---------+--------+--------------+--------------+-----------+-----------+-------------------+-----------------+
+3 rows in set (0.001 sec)
+
+MariaDB [base24]> select name from govsector where name='s';
+Empty set (0.001 sec)
+
+MariaDB [base24]> select name from govsector where name like 's%';
++---------+
+| name    |
++---------+
+| somay   |
+| shubham |
++---------+
+2 rows in set (0.001 sec)
+
+MariaDB [base24]> select name from govsector where name like '_a%';
++----------------+
+| name           |
++----------------+
+| harsh          |
+| Aakash chamoli |
+| jatin          |
+| jai            |
+| raj            |
++----------------+
+5 rows in set (0.001 sec)
+
+MariaDB [base24]> select name from govsector where name like '_____%';
++----------------+
+| name           |
++----------------+
+| nitin          |
+| harsh          |
+| Aakash chamoli |
+| jatin          |
+| ronak          |
+| somay          |
+| shubham        |
+| prakash        |
+| mukul          |
++----------------+
+9 rows in set (0.001 sec)
+
+MariaDB [base24]> select name from govsector where name like '5%';
+Empty set (0.001 sec)
+
+MariaDB [base24]> select name from govsector where name like '_____%';
++----------------+
+| name           |
++----------------+
+| nitin          |
+| harsh          |
+| Aakash chamoli |
+| jatin          |
+| ronak          |
+| somay          |
+| shubham        |
+| prakash        |
+| mukul          |
++----------------+
+9 rows in set (0.001 sec)
+
+MariaDB [base24]> select name from govsector where name like '_____';
++-------+
+| name  |
++-------+
+| nitin |
+| harsh |
+| jatin |
+| ronak |
+| somay |
+| mukul |
++-------+
+6 rows in set (0.001 sec)
+
+MariaDB [base24]> select name from govsector where employjob not in 'system administrator';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''system administrator'' at line 1
+MariaDB [base24]> select name from govsector where employjob not in 'software engineer';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''software engineer'' at line 1
+MariaDB [base24]> select name from govsector where employjob not in ('software engineer');
++---------+
+| name    |
++---------+
+| nitin   |
+| harsh   |
+| jatin   |
+| ronak   |
+| somay   |
+| jai     |
+| shubham |
+| prakash |
+| raj     |
+| mukul   |
++---------+
+10 rows in set (0.001 sec)
+
+MariaDB [base24]> select name from govsector where employjob not in ('salesman','clerk','analyst');
++----------------+
+| name           |
++----------------+
+| nitin          |
+| harsh          |
+| Aakash chamoli |
+| jatin          |
+| ronak          |
+| somay          |
++----------------+
+6 rows in set (0.001 sec)
+
+MariaDB [base24]> select name from govsector;
++----------------+
+| name           |
++----------------+
+| nitin          |
+| harsh          |
+| Aakash chamoli |
+| jatin          |
+| ronak          |
+| somay          |
+| jai            |
+| shubham        |
+| prakash        |
+| raj            |
+| mukul          |
++----------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision | experience_in_yrs | date_of_joining |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | no        | 10                | 21 aprail       |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | no        | 6                 | 25th july       |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | yes       | 3                 | 1 january       |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        | 6                 | 25th july       |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       | 5                 | 25th june       |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | no        | 3                 | 1 january       |
+|     1007 | jai            |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       |
+|     1008 | shubham        |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       |
+|     1009 | prakash        |   2500 |        25000 | no10         | clerk                | no        | 3                 | 1 january       |
+|     1010 | raj            |   4000 |        40000 | no20         | salesman             | no        | 3                 | 21st aprail     |
+|     1011 | mukul          |   4000 |        40000 | no40         | analyst              | no        | 3                 | 21st aprail     |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select sum(salary); 
+ERROR 1054 (42S22): Unknown column 'salary' in 'field list'
+MariaDB [base24]> select sum(salary) from govsector;
++-------------+
+| sum(salary) |
++-------------+
+|      296500 |
++-------------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select max(salary) from govsector;
++-------------+
+| max(salary) |
++-------------+
+|      200000 |
++-------------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select min(salary) from govsector;
++-------------+
+| min(salary) |
++-------------+
+|        2500 |
++-------------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select avg(salary) from govsector;
++-------------+
+| avg(salary) |
++-------------+
+|  26954.5455 |
++-------------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select max(salary) from govsector where employjob='clerk';
++-------------+
+| max(salary) |
++-------------+
+|        4000 |
++-------------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select max(salary) from govsector where employjob='salesman';
++-------------+
+| max(salary) |
++-------------+
+|        4000 |
++-------------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select avg(salary) from govsector where employjob='system administrator';
++-------------+
+| avg(salary) |
++-------------+
+|  12000.0000 |
++-------------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select salary from govsector where workingplace='no40';
++--------+
+| salary |
++--------+
+|   4000 |
++--------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select annualsalary from govsector where workingplace='no40';
++--------------+
+| annualsalary |
++--------------+
+|        40000 |
++--------------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select name from govsector ORDER BY name asc;
++----------------+
+| name           |
++----------------+
+| Aakash chamoli |
+| harsh          |
+| jai            |
+| jatin          |
+| mukul          |
+| nitin          |
+| prakash        |
+| raj            |
+| ronak          |
+| shubham        |
+| somay          |
++----------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select name from govsector ORDER BY salary asc;
++----------------+
+| name           |
++----------------+
+| prakash        |
+| mukul          |
+| raj            |
+| shubham        |
+| jai            |
+| jatin          |
+| ronak          |
+| somay          |
+| nitin          |
+| harsh          |
+| Aakash chamoli |
++----------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select name from govsector ORDER BY salary desc;
++----------------+
+| name           |
++----------------+
+| Aakash chamoli |
+| harsh          |
+| nitin          |
+| somay          |
+| ronak          |
+| jatin          |
+| jai            |
+| shubham        |
+| raj            |
+| mukul          |
+| prakash        |
++----------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision | experience_in_yrs | date_of_joining |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | no        | 10                | 21 aprail       |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | no        | 6                 | 25th july       |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | yes       | 3                 | 1 january       |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        | 6                 | 25th july       |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       | 5                 | 25th june       |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | no        | 3                 | 1 january       |
+|     1007 | jai            |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       |
+|     1008 | shubham        |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       |
+|     1009 | prakash        |   2500 |        25000 | no10         | clerk                | no        | 3                 | 1 january       |
+|     1010 | raj            |   4000 |        40000 | no20         | salesman             | no        | 3                 | 21st aprail     |
+|     1011 | mukul          |   4000 |        40000 | no40         | analyst              | no        | 3                 | 21st aprail     |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select name from govsector ORDER BY employjob  asc;
++----------------+
+| name           |
++----------------+
+| mukul          |
+| prakash        |
+| shubham        |
+| jai            |
+| ronak          |
+| somay          |
+| harsh          |
+| nitin          |
+| raj            |
+| Aakash chamoli |
+| jatin          |
++----------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select name from govsector ORDER BY employjob  desc;
++----------------+
+| name           |
++----------------+
+| jatin          |
+| Aakash chamoli |
+| raj            |
+| nitin          |
+| somay          |
+| harsh          |
+| ronak          |
+| jai            |
+| shubham        |
+| prakash        |
+| mukul          |
++----------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select name,salary from govsector;
++----------------+--------+
+| name           | salary |
++----------------+--------+
+| nitin          |  17000 |
+| harsh          |  18000 |
+| Aakash chamoli | 200000 |
+| jatin          |  12000 |
+| ronak          |  15000 |
+| somay          |  16000 |
+| jai            |   4000 |
+| shubham        |   4000 |
+| prakash        |   2500 |
+| raj            |   4000 |
+| mukul          |   4000 |
++----------------+--------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select employid,name,workingplace,salary from govsector;
++----------+----------------+--------------+--------+
+| employid | name           | workingplace | salary |
++----------+----------------+--------------+--------+
+|     1005 | nitin          | no7          |  17000 |
+|     1006 | harsh          | no9          |  18000 |
+|     1001 | Aakash chamoli | no10         | 200000 |
+|     1002 | jatin          | no9          |  12000 |
+|     1003 | ronak          | no8          |  15000 |
+|     1004 | somay          | no10         |  16000 |
+|     1007 | jai            | no8          |   4000 |
+|     1008 | shubham        | no8          |   4000 |
+|     1009 | prakash        | no10         |   2500 |
+|     1010 | raj            | no20         |   4000 |
+|     1011 | mukul          | no40         |   4000 |
++----------+----------------+--------------+--------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select employid,name,workingplace,salary from govsector ORDER BY name asc;
++----------+----------------+--------------+--------+
+| employid | name           | workingplace | salary |
++----------+----------------+--------------+--------+
+|     1001 | Aakash chamoli | no10         | 200000 |
+|     1006 | harsh          | no9          |  18000 |
+|     1007 | jai            | no8          |   4000 |
+|     1002 | jatin          | no9          |  12000 |
+|     1011 | mukul          | no40         |   4000 |
+|     1005 | nitin          | no7          |  17000 |
+|     1009 | prakash        | no10         |   2500 |
+|     1010 | raj            | no20         |   4000 |
+|     1003 | ronak          | no8          |  15000 |
+|     1008 | shubham        | no8          |   4000 |
+|     1004 | somay          | no10         |  16000 |
++----------+----------------+--------------+--------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select ,name,workingplace, from govsector ORDER BY name asc;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'name,workingplace, from govsector ORDER BY name asc' at line 1
+MariaDB [base24]> select name,workingplace, from govsector ORDER BY name asc;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from govsector ORDER BY name asc' at line 1
+MariaDB [base24]> select name,workingplace from govsector ORDER BY name asc;
++----------------+--------------+
+| name           | workingplace |
++----------------+--------------+
+| Aakash chamoli | no10         |
+| harsh          | no9          |
+| jai            | no8          |
+| jatin          | no9          |
+| mukul          | no40         |
+| nitin          | no7          |
+| prakash        | no10         |
+| raj            | no20         |
+| ronak          | no8          |
+| shubham        | no8          |
+| somay          | no10         |
++----------------+--------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select name,workingplace from govsector ORDER BY workingplace asc;
++----------------+--------------+
+| name           | workingplace |
++----------------+--------------+
+| somay          | no10         |
+| Aakash chamoli | no10         |
+| prakash        | no10         |
+| raj            | no20         |
+| mukul          | no40         |
+| nitin          | no7          |
+| ronak          | no8          |
+| jai            | no8          |
+| shubham        | no8          |
+| jatin          | no9          |
+| harsh          | no9          |
++----------------+--------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select workingplace,salary from govsector ORDER BY salary asc;
++--------------+--------+
+| workingplace | salary |
++--------------+--------+
+| no10         |   2500 |
+| no40         |   4000 |
+| no20         |   4000 |
+| no8          |   4000 |
+| no8          |   4000 |
+| no9          |  12000 |
+| no8          |  15000 |
+| no10         |  16000 |
+| no7          |  17000 |
+| no9          |  18000 |
+| no10         | 200000 |
++--------------+--------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select name,annualsalary from govsector;
++----------------+--------------+
+| name           | annualsalary |
++----------------+--------------+
+| nitin          |       170000 |
+| harsh          |       180000 |
+| Aakash chamoli |      2000000 |
+| jatin          |       120000 |
+| ronak          |       150000 |
+| somay          |       160000 |
+| jai            |        40000 |
+| shubham        |        40000 |
+| prakash        |        25000 |
+| raj            |        40000 |
+| mukul          |        40000 |
++----------------+--------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select name,annualsalary from govsector ORDER BY annualsalary desc;
++----------------+--------------+
+| name           | annualsalary |
++----------------+--------------+
+| Aakash chamoli |      2000000 |
+| harsh          |       180000 |
+| nitin          |       170000 |
+| somay          |       160000 |
+| ronak          |       150000 |
+| jatin          |       120000 |
+| jai            |        40000 |
+| shubham        |        40000 |
+| raj            |        40000 |
+| mukul          |        40000 |
+| prakash        |        25000 |
++----------------+--------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select name,salary,salary*15/100 as 'HRA';
+ERROR 1054 (42S22): Unknown column 'name' in 'field list'
+MariaDB [base24]> select name,salary,salary*15/100 as 'HRA' from govsector;
++----------------+--------+------------+
+| name           | salary | HRA        |
++----------------+--------+------------+
+| nitin          |  17000 |  2550.0000 |
+| harsh          |  18000 |  2700.0000 |
+| Aakash chamoli | 200000 | 30000.0000 |
+| jatin          |  12000 |  1800.0000 |
+| ronak          |  15000 |  2250.0000 |
+| somay          |  16000 |  2400.0000 |
+| jai            |   4000 |   600.0000 |
+| shubham        |   4000 |   600.0000 |
+| prakash        |   2500 |   375.0000 |
+| raj            |   4000 |   600.0000 |
+| mukul          |   4000 |   600.0000 |
++----------------+--------+------------+
+11 rows in set (0.001 sec)
+MariaDB [base24]> select name,salary,salary*15/100 as 'HRA', salary*5/100 as 'PF', salary+salary*15/100+salary*10/100-salary from govsector;
++----------------+--------+------------+------------+-------------------------------------------++salary*10/100-salary from govsect
+| name           | salary | HRA        | PF         | salary+salary*15/100+salary*10/100-salary |
++----------------+--------+------------+------------+-------------------------------------------+
+| nitin          |  17000 |  2550.0000 |   850.0000 |                                 4250.0000 |
+| harsh          |  18000 |  2700.0000 |   900.0000 |                                 4500.0000 |
+| Aakash chamoli | 200000 | 30000.0000 | 10000.0000 |                                50000.0000 |
+| jatin          |  12000 |  1800.0000 |   600.0000 |                                 3000.0000 |
+| ronak          |  15000 |  2250.0000 |   750.0000 |                                 3750.0000 |
+| somay          |  16000 |  2400.0000 |   800.0000 |                                 4000.0000 |
+| jai            |   4000 |   600.0000 |   200.0000 |                                 1000.0000 |
+| shubham        |   4000 |   600.0000 |   200.0000 |                                 1000.0000 |
+| prakash        |   2500 |   375.0000 |   125.0000 |                                  625.0000 |
+| raj            |   4000 |   600.0000 |   200.0000 |                                 1000.0000 |
+| mukul          |   4000 |   600.0000 |   200.0000 |                                 1000.0000 |
++----------------+--------+------------+------------+-------------------------------------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select name,salary,salary*15/100 as 'HRA', salary*5/100 as 'PF', salary+salary*15/100+salary*10/100-salary(5/100) as 'Totalsalary' from govsector;
+ERROR 1558 (HY000): Column count of mysql.proc is wrong. Expected 21, found 20. Created with MariaDB 100108, now running 100422. Please use mysql_upgrade to fix this error
+MariaDB [base24]> select name,salary,salary*15/100 as 'HRA', salary*5/100 as 'PF', salary+salary*15/100+salary*10/100-salar*5/100 as 'Totalsalary' from govsector;
+ERROR 1054 (42S22): Unknown column 'salar' in 'field list'
+MariaDB [base24]> select name,salary,salary*15/100 as 'HRA', salary*5/100 as 'PF', salary+salary*15/100+salary*10/100-salary*(5/100) as 'Totalsalary' from govsector;
++----------------+--------+------------+------------+-------------+
+| name           | salary | HRA        | PF         | Totalsalary |
++----------------+--------+------------+------------+-------------+
+| nitin          |  17000 |  2550.0000 |   850.0000 |  20400.0000 |
+| harsh          |  18000 |  2700.0000 |   900.0000 |  21600.0000 |
+| Aakash chamoli | 200000 | 30000.0000 | 10000.0000 | 240000.0000 |
+| jatin          |  12000 |  1800.0000 |   600.0000 |  14400.0000 |
+| ronak          |  15000 |  2250.0000 |   750.0000 |  18000.0000 |
+| somay          |  16000 |  2400.0000 |   800.0000 |  19200.0000 |
+| jai            |   4000 |   600.0000 |   200.0000 |   4800.0000 |
+| shubham        |   4000 |   600.0000 |   200.0000 |   4800.0000 |
+| prakash        |   2500 |   375.0000 |   125.0000 |   3000.0000 |
+| raj            |   4000 |   600.0000 |   200.0000 |   4800.0000 |
+| mukul          |   4000 |   600.0000 |   200.0000 |   4800.0000 |
++----------------+--------+------------+------------+-------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision | experience_in_yrs | date_of_joining |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | no        | 10                | 21 aprail       |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | no        | 6                 | 25th july       |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | yes       | 3                 | 1 january       |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        | 6                 | 25th july       |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       | 5                 | 25th june       |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | no        | 3                 | 1 january       |
+|     1007 | jai            |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       |
+|     1008 | shubham        |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       |
+|     1009 | prakash        |   2500 |        25000 | no10         | clerk                | no        | 3                 | 1 january       |
+|     1010 | raj            |   4000 |        40000 | no20         | salesman             | no        | 3                 | 21st aprail     |
+|     1011 | mukul          |   4000 |        40000 | no40         | analyst              | no        | 3                 | 21st aprail     |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select workingplace,count(employjob) from govsector group by employjob;
++--------------+------------------+
+| workingplace | count(employjob) |
++--------------+------------------+
+| no40         |                1 |
+| no8          |                3 |
+| no8          |                1 |
+| no7          |                3 |
+| no20         |                1 |
+| no10         |                1 |
+| no9          |                1 |
++--------------+------------------+
+7 rows in set (0.008 sec)
+
+MariaDB [base24]> select employjob from govsector;
++----------------------+
+| employjob            |
++----------------------+
+| frontend developer   |
+| frontend developer   |
+| software engineer    |
+| system administrator |
+| database engineer    |
+| frontend developer   |
+| clerk                |
+| clerk                |
+| clerk                |
+| salesman             |
+| analyst              |
++----------------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select employjob,count(employjob) from govsector group by employjob;
++----------------------+------------------+
+| employjob            | count(employjob) |
++----------------------+------------------+
+| analyst              |                1 |
+| clerk                |                3 |
+| database engineer    |                1 |
+| frontend developer   |                3 |
+| salesman             |                1 |
+| software engineer    |                1 |
+| system administrator |                1 |
++----------------------+------------------+
+7 rows in set (0.001 sec)
+
+MariaDB [base24]> select workingplace,sum(salary) from govsector;
++--------------+-------------+
+| workingplace | sum(salary) |
++--------------+-------------+
+| no7          |      296500 |
++--------------+-------------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select workingplace,sum(salary)  from govsector where group by workingplace;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'group by workingplace' at line 1
+MariaDB [base24]> select workingplace,sum(salary) from govsector group by workingplace;
++--------------+-------------+
+| workingplace | sum(salary) |
++--------------+-------------+
+| no10         |      218500 |
+| no20         |        4000 |
+| no40         |        4000 |
+| no7          |       17000 |
+| no8          |       23000 |
+| no9          |       30000 |
++--------------+-------------+
+6 rows in set (0.001 sec)
+
+MariaDB [base24]> select workingplace,max(salary) from govsector group by workingplace ;
++--------------+-------------+
+| workingplace | max(salary) |
++--------------+-------------+
+| no10         |      200000 |
+| no20         |        4000 |
+| no40         |        4000 |
+| no7          |       17000 |
+| no8          |       15000 |
+| no9          |       18000 |
++--------------+-------------+
+6 rows in set (0.001 sec)
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision | experience_in_yrs | date_of_joining |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | no        | 10                | 21 aprail       |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | no        | 6                 | 25th july       |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | yes       | 3                 | 1 january       |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        | 6                 | 25th july       |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       | 5                 | 25th june       |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | no        | 3                 | 1 january       |
+|     1007 | jai            |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       |
+|     1008 | shubham        |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       |
+|     1009 | prakash        |   2500 |        25000 | no10         | clerk                | no        | 3                 | 1 january       |
+|     1010 | raj            |   4000 |        40000 | no20         | salesman             | no        | 3                 | 21st aprail     |
+|     1011 | mukul          |   4000 |        40000 | no40         | analyst              | no        | 3                 | 21st aprail     |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select employjob,sum(salary) from govsector group by employjob;
++----------------------+-------------+
+| employjob            | sum(salary) |
++----------------------+-------------+
+| analyst              |        4000 |
+| clerk                |       10500 |
+| database engineer    |       15000 |
+| frontend developer   |       51000 |
+| salesman             |        4000 |
+| software engineer    |      200000 |
+| system administrator |       12000 |
++----------------------+-------------+
+7 rows in set (0.001 sec)
+
+MariaDB [base24]> select employjob,min(annualsalary) from govsector group by annualsalary;
++----------------------+-------------------+
+| employjob            | min(annualsalary) |
++----------------------+-------------------+
+| clerk                |             25000 |
+| clerk                |             40000 |
+| system administrator |            120000 |
+| database engineer    |            150000 |
+| frontend developer   |            160000 |
+| frontend developer   |            170000 |
+| frontend developer   |            180000 |
+| software engineer    |           2000000 |
++----------------------+-------------------+
+8 rows in set (0.001 sec)
+
+MariaDB [base24]> select employjob,min(annualsalary) from govsector group by employjob;
++----------------------+-------------------+
+| employjob            | min(annualsalary) |
++----------------------+-------------------+
+| analyst              |             40000 |
+| clerk                |             25000 |
+| database engineer    |            150000 |
+| frontend developer   |            160000 |
+| salesman             |             40000 |
+| software engineer    |           2000000 |
+| system administrator |            120000 |
++----------------------+-------------------+
+7 rows in set (0.001 sec)
+
+MariaDB [base24]> select workingplace from govsector where employjob>3;
+Empty set, 11 warnings (0.001 sec)
+
+MariaDB [base24]> select workingplace from govsector where employjob>(3);
+Empty set, 11 warnings (0.001 sec)
+
+MariaDB [base24]> select workingplace,count(employjob) from govsector group by workingplace;
++--------------+------------------+
+| workingplace | count(employjob) |
++--------------+------------------+
+| no10         |                3 |
+| no20         |                1 |
+| no40         |                1 |
+| no7          |                1 |
+| no8          |                3 |
+| no9          |                2 |
++--------------+------------------+
+6 rows in set (0.001 sec)
+
+MariaDB [base24]> select workingplace,count(employjob) from govsector group by workingplace>=3;
++--------------+------------------+
+| workingplace | count(employjob) |
++--------------+------------------+
+| no7          |               11 |
++--------------+------------------+
+1 row in set, 12 warnings (0.001 sec)
+
+MariaDB [base24]> select workingplace,count(employjob) from govsector group by workingplace>2;
++--------------+------------------+
+| workingplace | count(employjob) |
++--------------+------------------+
+| no7          |               11 |
++--------------+------------------+
+1 row in set, 12 warnings (0.001 sec)
+
+MariaDB [base24]> select workingplace,count(employjob) from govsector group by workingplace;
++--------------+------------------+
+| workingplace | count(employjob) |
++--------------+------------------+
+| no10         |                3 |
+| no20         |                1 |
+| no40         |                1 |
+| no7          |                1 |
+| no8          |                3 |
+| no9          |                2 |
++--------------+------------------+
+6 rows in set (0.001 sec)
+
+MariaDB [base24]> select employjob,workingplace from govsector;
++----------------------+--------------+
+| employjob            | workingplace |
++----------------------+--------------+
+| frontend developer   | no7          |
+| frontend developer   | no9          |
+| software engineer    | no10         |
+| system administrator | no9          |
+| database engineer    | no8          |
+| frontend developer   | no10         |
+| clerk                | no8          |
+| clerk                | no8          |
+| clerk                | no10         |
+| salesman             | no20         |
+| analyst              | no40         |
++----------------------+--------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select name from govsector where name like '%h'
+    -> select name from govsector where name like 'h%'
+    -> select name from govsector where name like 'h_%'
+    -> select name from govsector where name like 'h%'
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'select name from govsector where name like 'h%'
+select name from govsector wh...' at line 2
+MariaDB [base24]> select name from govsector where name like '%h';
++---------+
+| name    |
++---------+
+| harsh   |
+| prakash |
++---------+
+2 rows in set (0.001 sec)
+
+MariaDB [base24]> alter table govsector add country varchar(20);
+Query OK, 0 rows affected (0.015 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [base24]> update govsector set country='chicago' where workingplace='no7';
+Query OK, 1 row affected (0.011 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [base24]> update govsector set country='los angeles' where workingplace='no8';
+Query OK, 3 rows affected (0.007 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+MariaDB [base24]> update govsector set country='antlantis' where workingplace='no9';
+Query OK, 2 rows affected (0.011 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+MariaDB [base24]> update govsector set country='sydney' where workingplace='no10';
+Query OK, 3 rows affected (0.005 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision | experience_in_yrs | date_of_joining | country     |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | no        | 10                | 21 aprail       | chicago     |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | no        | 6                 | 25th july       | antlantis   |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | yes       | 3                 | 1 january       | sydney      |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        | 6                 | 25th july       | antlantis   |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       | 5                 | 25th june       | los angeles |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | no        | 3                 | 1 january       | sydney      |
+|     1007 | jai            |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       | los angeles |
+|     1008 | shubham        |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       | los angeles |
+|     1009 | prakash        |   2500 |        25000 | no10         | clerk                | no        | 3                 | 1 january       | sydney      |
+|     1010 | raj            |   4000 |        40000 | no20         | salesman             | no        | 3                 | 21st aprail     | NULL        |
+|     1011 | mukul          |   4000 |        40000 | no40         | analyst              | no        | 3                 | 21st aprail     | NULL        |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> update govsector set country='paris' where workingplace='no20';
+Query OK, 1 row affected (0.011 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [base24]> update govsector set country='brazil' where workingplace='no40';
+Query OK, 1 row affected (0.007 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision | experience_in_yrs | date_of_joining | country     |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | no        | 10                | 21 aprail       | chicago     |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | no        | 6                 | 25th july       | antlantis   |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | yes       | 3                 | 1 january       | sydney      |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        | 6                 | 25th july       | antlantis   |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       | 5                 | 25th june       | los angeles |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | no        | 3                 | 1 january       | sydney      |
+|     1007 | jai            |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       | los angeles |
+|     1008 | shubham        |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       | los angeles |
+|     1009 | prakash        |   2500 |        25000 | no10         | clerk                | no        | 3                 | 1 january       | sydney      |
+|     1010 | raj            |   4000 |        40000 | no20         | salesman             | no        | 3                 | 21st aprail     | paris       |
+|     1011 | mukul          |   4000 |        40000 | no40         | analyst              | no        | 3                 | 21st aprail     | brazil      |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select name from govsector where country='chicago';
++-------+
+| name  |
++-------+
+| nitin |
++-------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select name from govsector where max(annualsalary);
+ERROR 1111 (HY000): Invalid use of group function
+MariaDB [base24]> select name,max(annualsalary) from govsecto;
+ERROR 1146 (42S02): Table 'base24.govsecto' doesn't exist
+MariaDB [base24]> select name,max(annualsalary) from govsector;
++-------+-------------------+
+| name  | max(annualsalary) |
++-------+-------------------+
+| nitin |           2000000 |
++-------+-------------------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select name, from govsector where max(annualsalary);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from govsector where max(annualsalary)' at line 1
+MariaDB [base24]> select name from govsector where name like 'h_%'
+
+
