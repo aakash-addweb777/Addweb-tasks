@@ -1,0 +1,614 @@
+aakash@aakash-HP-Pavilion-x360-Convertible-14-dh1xxx:~$ sudo /opt/lampp/bin/mysql -u root -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.4.22-MariaDB Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| base24             |
+| information_schema |
+| mysql              |
+| neflix             |
+| performance_schema |
+| phpmyadmin         |
+| sampledb           |
+| table1             |
+| table2             |
+| table4             |
+| test               |
++--------------------+
+11 rows in set (0.010 sec)
+
+MariaDB [(none)]> show tables;
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> use base24;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [base24]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| base24             |
+| information_schema |
+| mysql              |
+| neflix             |
+| performance_schema |
+| phpmyadmin         |
+| sampledb           |
+| table1             |
+| table2             |
+| table4             |
+| test               |
++--------------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> use base24;
+Database changed
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision | experience_in_yrs | date_of_joining | country     |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | no        | 10                | 21 aprail       | chicago     |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | no        | 6                 | 25th july       | antlantis   |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | yes       | 3                 | 1 january       | sydney      |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        | 6                 | 25th july       | antlantis   |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       | 5                 | 25th june       | los angeles |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | no        | 3                 | 1 january       | sydney      |
+|     1007 | jai            |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       | los angeles |
+|     1008 | shubham        |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       | los angeles |
+|     1009 | prakash        |   2500 |        25000 | no10         | clerk                | no        | 3                 | 1 january       | sydney      |
+|     1010 | raj            |   4000 |        40000 | no20         | salesman             | no        | 3                 | 21st aprail     | paris       |
+|     1011 | mukul          |   4000 |        40000 | no40         | analyst              | no        | 3                 | 21st aprail     | brazil      |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+11 rows in set (0.010 sec)
+
+MariaDB [base24]> select name from govsector where sum(salary);
+ERROR 1111 (HY000): Invalid use of group function
+MariaDB [base24]> select  sum(salary) from govsector;
++-------------+
+| sum(salary) |
++-------------+
+|      296500 |
++-------------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select max(salary) from govsector;
++-------------+
+| max(salary) |
++-------------+
+|      200000 |
++-------------+
+1 row in set (0.008 sec)
+
+MariaDB [base24]> select avg(salary) from govsector;
++-------------+
+| avg(salary) |
++-------------+
+|  26954.5455 |
++-------------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select min(salary) from govsector;
++-------------+
+| min(salary) |
++-------------+
+|        2500 |
++-------------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select count(salary) from govsector;
++---------------+
+| count(salary) |
++---------------+
+|            11 |
++---------------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select * frm govsector;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'frm govsector' at line 1
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision | experience_in_yrs | date_of_joining | country     |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | no        | 10                | 21 aprail       | chicago     |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | no        | 6                 | 25th july       | antlantis   |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | yes       | 3                 | 1 january       | sydney      |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        | 6                 | 25th july       | antlantis   |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       | 5                 | 25th june       | los angeles |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | no        | 3                 | 1 january       | sydney      |
+|     1007 | jai            |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       | los angeles |
+|     1008 | shubham        |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       | los angeles |
+|     1009 | prakash        |   2500 |        25000 | no10         | clerk                | no        | 3                 | 1 january       | sydney      |
+|     1010 | raj            |   4000 |        40000 | no20         | salesman             | no        | 3                 | 21st aprail     | paris       |
+|     1011 | mukul          |   4000 |        40000 | no40         | analyst              | no        | 3                 | 21st aprail     | brazil      |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select annualsalary from govsector group by annualsalary;
++--------------+
+| annualsalary |
++--------------+
+|        25000 |
+|        40000 |
+|       120000 |
+|       150000 |
+|       160000 |
+|       170000 |
+|       180000 |
+|      2000000 |
++--------------+
+8 rows in set (0.001 sec)
+
+MariaDB [base24]> select workingplace from govsector group by annualsalary;
++--------------+
+| workingplace |
++--------------+
+| no10         |
+| no8          |
+| no9          |
+| no8          |
+| no10         |
+| no7          |
+| no9          |
+| no10         |
++--------------+
+8 rows in set (0.001 sec)
+
+MariaDB [base24]> select workingplace,employjob from govsector group by employjob;
++--------------+----------------------+
+| workingplace | employjob            |
++--------------+----------------------+
+| no40         | analyst              |
+| no8          | clerk                |
+| no8          | database engineer    |
+| no7          | frontend developer   |
+| no20         | salesman             |
+| no10         | software engineer    |
+| no9          | system administrator |
++--------------+----------------------+
+7 rows in set (0.001 sec)
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision | experience_in_yrs | date_of_joining | country     |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | no        | 10                | 21 aprail       | chicago     |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | no        | 6                 | 25th july       | antlantis   |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | yes       | 3                 | 1 january       | sydney      |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        | 6                 | 25th july       | antlantis   |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       | 5                 | 25th june       | los angeles |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | no        | 3                 | 1 january       | sydney      |
+|     1007 | jai            |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       | los angeles |
+|     1008 | shubham        |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       | los angeles |
+|     1009 | prakash        |   2500 |        25000 | no10         | clerk                | no        | 3                 | 1 january       | sydney      |
+|     1010 | raj            |   4000 |        40000 | no20         | salesman             | no        | 3                 | 21st aprail     | paris       |
+|     1011 | mukul          |   4000 |        40000 | no40         | analyst              | no        | 3                 | 21st aprail     | brazil      |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| base24             |
+| information_schema |
+| mysql              |
+| neflix             |
+| performance_schema |
+| phpmyadmin         |
+| sampledb           |
+| table1             |
+| table2             |
+| table4             |
+| test               |
++--------------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> create table personal(id int(10),name varchar(20),address varchar(20),mobile_no int(10));
+Query OK, 0 rows affected (0.028 sec)
+
+MariaDB [base24]> create table official(id int(10),dept varchar(20), designation varchar(20),email varchar(20));
+Query OK, 0 rows affected (0.026 sec)
+
+MariaDB [base24]> create table hr(email varchar(10),salary int(10), deductions  varchar(20));
+Query OK, 0 rows affected (0.028 sec)
+
+MariaDB [base24]> insert into personal(id,name,address,mobile_no)
+    -> values(1,'Aakash chamoli', 'Nirman nagar ajmer road kings road, jaipur',8947927647);
+ERROR 1406 (22001): Data too long for column 'address' at row 1
+MariaDB [base24]> insert into personal(id,name,address,mobile_no) values(1,'Aakash chamoli', 'Nirman nagar, jaipur',8947927647);
+ERROR 1264 (22003): Out of range value for column 'mobile_no' at row 1
+MariaDB [base24]> insert into personal(id,name,address,mobile_no) values(1,'Aakash chamoli', 'Nirman nagar, jaipur',894792764);
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [base24]> insert into officials(id,dept,designation,email) values(2,'programming', 'trainee',aakashchamoli19@gmail.com);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@gmail.com)' at line 1
+MariaDB [base24]> insert into officials(id,dept,designation,email) values(2,'programming', 'trainee','aakashchamoli19@gmail.com');
+ERROR 1146 (42S02): Table 'base24.officials' doesn't exist
+MariaDB [base24]> insert into official(id,dept,designation,email) values(2,'programming', 'trainee','aakashchamoli19@gmail.com');
+ERROR 1406 (22001): Data too long for column 'email' at row 1
+MariaDB [base24]> insert into official(id,dept,designation,email) values(2,'programming', 'trainee','abc@gmail.com');
+Query OK, 1 row affected (0.011 sec)
+
+MariaDB [base24]> insert into hr(email,salary,deductions) values('abc@gmail.com',1200000,12000);
+ERROR 1406 (22001): Data too long for column 'email' at row 1
+MariaDB [base24]> insert into hr(email,salary,deductions) values('a@gmail.com',1200000,12000);
+ERROR 1406 (22001): Data too long for column 'email' at row 1
+MariaDB [base24]> insert into hr(email,salary,deductions) values('a@gmail.com',1200000,12000);
+ERROR 1406 (22001): Data too long for column 'email' at row 1
+MariaDB [base24]> update table hr where email varchar(20);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'table hr where email varchar(20)' at line 1
+MariaDB [base24]> drop table hr;
+Query OK, 0 rows affected (0.019 sec)
+
+MariaDB [base24]> show tables;
++------------------+
+| Tables_in_base24 |
++------------------+
+| govsector        |
+| official         |
+| personal         |
++------------------+
+3 rows in set (0.001 sec)
+
+MariaDB [base24]> create table hr(email varchar(30),salary int(10), deductions  varchar(20));
+Query OK, 0 rows affected (0.024 sec)
+
+MariaDB [base24]> show tables;
++------------------+
+| Tables_in_base24 |
++------------------+
+| govsector        |
+| hr               |
+| official         |
+| personal         |
++------------------+
+4 rows in set (0.001 sec)
+
+MariaDB [base24]> insert into hr(email,salary,deductions) values('abc@gmail.com',1200000,12000);
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [base24]> select *from personal;
++------+----------------+----------------------+-----------+
+| id   | name           | address              | mobile_no |
++------+----------------+----------------------+-----------+
+|    1 | Aakash chamoli | Nirman nagar, jaipur | 894792764 |
++------+----------------+----------------------+-----------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select *from official;
++------+-------------+-------------+---------------+
+| id   | dept        | designation | email         |
++------+-------------+-------------+---------------+
+|    2 | programming | trainee     | abc@gmail.com |
++------+-------------+-------------+---------------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select *from hr;
++---------------+---------+------------+
+| email         | salary  | deductions |
++---------------+---------+------------+
+| abc@gmail.com | 1200000 | 12000      |
++---------------+---------+------------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select salary from hr;
++---------+
+| salary  |
++---------+
+| 1200000 |
++---------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select email from hr where salary='1200000';
++---------------+
+| email         |
++---------------+
+| abc@gmail.com |
++---------------+
+1 row in set (0.008 sec)
+
+MariaDB [base24]> select name from personal where id =  select email from hr where salary='1200000';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'select email from hr where salary='1200000'' at line 1
+MariaDB [base24]> select designation from official where email= select email from hr where salary='1200000';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'select email from hr where salary='1200000'' at line 1
+MariaDB [base24]> select designation from official where email= (select email from hr where salary='1200000');
++-------------+
+| designation |
++-------------+
+| trainee     |
++-------------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> update official set id=1;
+Query OK, 1 row affected (0.008 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [base24]> select * from official;
++------+-------------+-------------+---------------+
+| id   | dept        | designation | email         |
++------+-------------+-------------+---------------+
+|    1 | programming | trainee     | abc@gmail.com |
++------+-------------+-------------+---------------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select * from personal;
++------+----------------+----------------------+-----------+
+| id   | name           | address              | mobile_no |
++------+----------------+----------------------+-----------+
+|    1 | Aakash chamoli | Nirman nagar, jaipur | 894792764 |
++------+----------------+----------------------+-----------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select * from hr;
++---------------+---------+------------+
+| email         | salary  | deductions |
++---------------+---------+------------+
+| abc@gmail.com | 1200000 | 12000      |
++---------------+---------+------------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> select address from personal where id=(select id from official where dept='programming');
++----------------------+
+| address              |
++----------------------+
+| Nirman nagar, jaipur |
++----------------------+
+1 row in set (0.001 sec)
+
+MariaDB [base24]> insert into hr(email,salary,deductions) values('a@gmail.com',1500000,15000);
+Query OK, 1 row affected (0.011 sec)
+
+MariaDB [base24]> insert into official(id,dept,designation,email) values(2,'testing','tester','a@gmail.com');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [base24]> insert into personal(id,name,address,mobile_no) values(2,'Ram sharma','kunj vihar',786539076);
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [base24]> select * from hr;
++---------------+---------+------------+
+| email         | salary  | deductions |
++---------------+---------+------------+
+| abc@gmail.com | 1200000 | 12000      |
+| a@gmail.com   | 1500000 | 15000      |
++---------------+---------+------------+
+2 rows in set (0.001 sec)
+
+MariaDB [base24]> select * from official;
++------+-------------+-------------+---------------+
+| id   | dept        | designation | email         |
++------+-------------+-------------+---------------+
+|    1 | programming | trainee     | abc@gmail.com |
+|    2 | testing     | tester      | a@gmail.com   |
++------+-------------+-------------+---------------+
+2 rows in set (0.001 sec)
+
+MariaDB [base24]> select * from personal;
++------+----------------+----------------------+-----------+
+| id   | name           | address              | mobile_no |
++------+----------------+----------------------+-----------+
+|    1 | Aakash chamoli | Nirman nagar, jaipur | 894792764 |
+|    2 | Ram sharma     | kunj vihar           | 786539076 |
++------+----------------+----------------------+-----------+
+2 rows in set (0.001 sec)
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision | experience_in_yrs | date_of_joining | country     |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | no        | 10                | 21 aprail       | chicago     |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | no        | 6                 | 25th july       | antlantis   |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | yes       | 3                 | 1 january       | sydney      |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        | 6                 | 25th july       | antlantis   |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       | 5                 | 25th june       | los angeles |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | no        | 3                 | 1 january       | sydney      |
+|     1007 | jai            |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       | los angeles |
+|     1008 | shubham        |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       | los angeles |
+|     1009 | prakash        |   2500 |        25000 | no10         | clerk                | no        | 3                 | 1 january       | sydney      |
+|     1010 | raj            |   4000 |        40000 | no20         | salesman             | no        | 3                 | 21st aprail     | paris       |
+|     1011 | mukul          |   4000 |        40000 | no40         | analyst              | no        | 3                 | 21st aprail     | brazil      |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+11 rows in set (0.001 sec)
+
+MariaDB [base24]> select employjob,count(country) group by country having chicago;
+ERROR 1054 (42S22): Unknown column 'employjob' in 'field list'
+MariaDB [base24]> select employjob,count(workingplace) group by employjob having count(employjob='clerk');
+ERROR 1054 (42S22): Unknown column 'employjob' in 'field list'
+MariaDB [base24]> select employjob,count(workingplace) group by employjob having count(workingplace>3);
+ERROR 1054 (42S22): Unknown column 'employjob' in 'field list'
+MariaDB [base24]> select employjob from govsector group by employjob;
++----------------------+
+| employjob            |
++----------------------+
+| analyst              |
+| clerk                |
+| database engineer    |
+| frontend developer   |
+| salesman             |
+| software engineer    |
+| system administrator |
++----------------------+
+7 rows in set (0.001 sec)
+
+MariaDB [base24]> select employjob from govsector group by employjob having count(workplace);
+ERROR 1054 (42S22): Unknown column 'workplace' in 'having clause'
+MariaDB [base24]> select employjob from govsector group by employjob having workplace>2
+    -> 
+    -> select employjob from govsector group by employjob having workplace>2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'select employjob from govsector group by employjob having workplace>2' at line 3
+MariaDB [base24]> select employjob from govsector group by employjob having count(workplace>2);
+ERROR 1054 (42S22): Unknown column 'workplace' in 'having clause'
+MariaDB [base24]> select employjob from govsector group by employjob ;
++----------------------+
+| employjob            |
++----------------------+
+| analyst              |
+| clerk                |
+| database engineer    |
+| frontend developer   |
+| salesman             |
+| software engineer    |
+| system administrator |
++----------------------+
+7 rows in set (0.001 sec)
+
+MariaDB [base24]> select workingplace from govsector group by workingplace;
++--------------+
+| workingplace |
++--------------+
+| no10         |
+| no20         |
+| no40         |
+| no7          |
+| no8          |
+| no9          |
++--------------+
+6 rows in set (0.001 sec)
+
+MariaDB [base24]> select workingplace from govsector group by workingplace having count(employjob>1);
++--------------+
+| workingplace |
++--------------+
+| no10         |
+| no20         |
+| no40         |
+| no7          |
+| no8          |
+| no9          |
++--------------+
+6 rows in set (0.001 sec)
+
+MariaDB [base24]> select workingplace from govsector group by workingplace having count(employjob>2);
++--------------+
+| workingplace |
++--------------+
+| no10         |
+| no20         |
+| no40         |
+| no7          |
+| no8          |
+| no9          |
++--------------+
+6 rows in set (0.000 sec)
+
+MariaDB [base24]> select workingplace from govsector group by workingplace having count(employjob>3);
++--------------+
+| workingplace |
++--------------+
+| no10         |
+| no20         |
+| no40         |
+| no7          |
+| no8          |
+| no9          |
++--------------+
+6 rows in set (0.001 sec)
+
+MariaDB [base24]> select workingplace from govsector group by workingplace having count(employjob<2);
++--------------+
+| workingplace |
++--------------+
+| no10         |
+| no20         |
+| no40         |
+| no7          |
+| no8          |
+| no9          |
++--------------+
+6 rows in set (0.001 sec)
+
+MariaDB [base24]> select workingplace from govsector group by workingplace having count(employjob)>2);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
+MariaDB [base24]> select workingplace from govsector group by workingplace having count(employjob)>2;
++--------------+
+| workingplace |
++--------------+
+| no10         |
+| no8          |
++--------------+
+2 rows in set (0.001 sec)
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision | experience_in_yrs | date_of_joining | country     |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | no        | 10                | 21 aprail       | chicago     |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | no        | 6                 | 25th july       | antlantis   |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | yes       | 3                 | 1 january       | sydney      |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        | 6                 | 25th july       | antlantis   |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       | 5                 | 25th june       | los angeles |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | no        | 3                 | 1 january       | sydney      |
+|     1007 | jai            |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       | los angeles |
+|     1008 | shubham        |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       | los angeles |
+|     1009 | prakash        |   2500 |        25000 | no10         | clerk                | no        | 3                 | 1 january       | sydney      |
+|     1010 | raj            |   4000 |        40000 | no20         | salesman             | no        | 3                 | 21st aprail     | paris       |
+|     1011 | mukul          |   4000 |        40000 | no40         | analyst              | no        | 3                 | 21st aprail     | brazil      |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+11 rows in set (0.010 sec)
+
+MariaDB [base24]> select * from hr;
++---------------+---------+------------+
+| email         | salary  | deductions |
++---------------+---------+------------+
+| abc@gmail.com | 1200000 | 12000      |
+| a@gmail.com   | 1500000 | 15000      |
++---------------+---------+------------+
+2 rows in set (0.001 sec)
+
+MariaDB [base24]> select * from offcial;
+ERROR 1146 (42S02): Table 'base24.offcial' doesn't exist
+MariaDB [base24]> select * from offcials;
+ERROR 1146 (42S02): Table 'base24.offcials' doesn't exist
+MariaDB [base24]> select * from official;
++------+-------------+-------------+---------------+
+| id   | dept        | designation | email         |
++------+-------------+-------------+---------------+
+|    1 | programming | trainee     | abc@gmail.com |
+|    2 | testing     | tester      | a@gmail.com   |
++------+-------------+-------------+---------------+
+2 rows in set (0.001 sec)
+
+MariaDB [base24]> select * from personal;
++------+----------------+----------------------+-----------+
+| id   | name           | address              | mobile_no |
++------+----------------+----------------------+-----------+
+|    1 | Aakash chamoli | Nirman nagar, jaipur | 894792764 |
+|    2 | Ram sharma     | kunj vihar           | 786539076 |
++------+----------------+----------------------+-----------+
+2 rows in set (0.001 sec)
+
+MariaDB [base24]> select * from hr;
++---------------+---------+------------+
+| email         | salary  | deductions |
++---------------+---------+------------+
+| abc@gmail.com | 1200000 | 12000      |
+| a@gmail.com   | 1500000 | 15000      |
++---------------+---------+------------+
+2 rows in set (0.001 sec)
+
+MariaDB [base24]> select * from govsector;
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+| employid | name           | salary | annualsalary | workingplace | employjob            | commision | experience_in_yrs | date_of_joining | country     |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+|     1005 | nitin          |  17000 |       170000 | no7          | frontend developer   | no        | 10                | 21 aprail       | chicago     |
+|     1006 | harsh          |  18000 |       180000 | no9          | frontend developer   | no        | 6                 | 25th july       | antlantis   |
+|     1001 | Aakash chamoli | 200000 |      2000000 | no10         | software engineer    | yes       | 3                 | 1 january       | sydney      |
+|     1002 | jatin          |  12000 |       120000 | no9          | system administrator | no        | 6                 | 25th july       | antlantis   |
+|     1003 | ronak          |  15000 |       150000 | no8          | database engineer    | yes       | 5                 | 25th june       | los angeles |
+|     1004 | somay          |  16000 |       160000 | no10         | frontend developer   | no        | 3                 | 1 january       | sydney      |
+|     1007 | jai            |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       | los angeles |
+|     1008 | shubham        |   4000 |        40000 | no8          | clerk                | no        | 5                 | 25th june       | los angeles |
+|     1009 | prakash        |   2500 |        25000 | no10         | clerk                | no        | 3                 | 1 january       | sydney      |
+|     1010 | raj            |   4000 |        40000 | no20         | salesman             | no        | 3                 | 21st aprail     | paris       |
+|     1011 | mukul          |   4000 |        40000 | no40         | analyst              | no        | 3                 | 21st aprail     | brazil      |
++----------+----------------+--------+--------------+--------------+----------------------+-----------+-------------------+-----------------+-------------+
+11 rows in set (0.001 sec)
