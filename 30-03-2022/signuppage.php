@@ -6,8 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inserting Data</title>
     <style>
+input[type=email], select {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 input[type=text], select {
-  width: 100%;
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=password], select {
+  width: 50%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -16,7 +34,7 @@ input[type=text], select {
   box-sizing: border-box;
 }
 input[type=number], select {
-  width: 100%;
+  width: 50%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -26,7 +44,7 @@ input[type=number], select {
 }
 
 input[type=submit] {
-  width: 100%;
+  width: 50%;
   background-color: #4CAF50;
   color: white;
   padding: 14px 20px;
@@ -45,24 +63,44 @@ div {
   background-color: #f2f2f2;
   padding: 20px;
 }
+body  {
+  background-image: url("https://www.w3schools.com/css/img_tree.gif");
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 </style>
 </head>
 <body>
     <form method="POST">
         Welcome to signup page <br></br>
-        ID: <input type="number" name="employid" /><br>
-        Name:     <input type="text" name="name" /></br>
-        Address:     <input type="text" name="address" /><br>
-        Mobile no.:     <input type="number" name="mobileno" /><br>
-        Email:     <input type="text" name="eml" /></br>
-        Password:     <input type="text" name="pw" /><br>
+        <input type="number" placeholder="Enter ID" name="employid" /><br>
+            <input type="text" placeholder="Enter Name" name="name" /></br>
+            <input type="text" placeholder="Enter Address" name="address" /><br>
+            <input type="number" placeholder="Enter Mobile number" name="mobileno" /><br>
+            <input type="email" placeholder="Enter Email id" name="eml" /></br>
+             <input type="password" name="pw" placeholder="Enter password" id="pw" /><br>
+         <input type="password" name="cpw" id="cpw" placeholder="Enter password again" /><br>
         <!-- commision:     <input type="text" name="comm" /></br>
         experience_in_yrs:     <input type="text" name="exinyrs" /><br>
         date_of_joining:     <input type="text" name="dtofj" /></br>
         country:     <input type="text" name="country" /><br> -->
-        <input type="submit" name="login" value="Login here"></br>
+        <input type="submit" name="login"  onclick="return Validate()" value="Login here"></br>
         
     </form>
+    <script type="text/javascript">
+    function Validate() {
+        var password = document.getElementById("pw").value;
+        var confirmPassword = document.getElementById("cpw").value;
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }else{
+          alert("Password match! Welcome.")
+        return true;
+        }
+    }
+</script>
 </body>
 </html>
 <?php
