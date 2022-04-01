@@ -8,6 +8,6 @@ $query = mysqli_query($con, "Delete from student where email='$email'") or die("
 
 header('Location:dashboard.php');
 
-//hello
+
 mysqli_close($con);
 ?>

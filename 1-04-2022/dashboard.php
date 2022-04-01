@@ -24,7 +24,7 @@
 #addi  {
   background-color: #4CAF50; /* Green */
   border: none;
-  color: white ;
+  color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
