@@ -13,7 +13,7 @@ input[type=email], select {
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box ;
+  box-sizing: border-box;
 }
 input[type=text], select {
   width: 50%;
@@ -73,7 +73,7 @@ body  {
 </head>
 <body>
     <form method="POST">
-        Welcome to signup page <br></br>
+        <h3 style="color:#101ac8;font-family: 'Times New Roman', Times, serif;">Welcome to signup page</h3> <br></br>
         <input type="number" placeholder="Enter ID" name="employid" /><br>
             <input type="text" placeholder="Enter Name" name="name" /></br>
             <input type="text" placeholder="Enter Address" name="address" /><br>

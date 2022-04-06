@@ -7,16 +7,16 @@
     <title>first page</title>
     <style>
 input[type=text], select {
-  width: 100%;
+  width: 50%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box ;
+  box-sizing: border-box;
 }
 input[type=password], select {
-  width: 100%;
+  width: 50%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -25,7 +25,7 @@ input[type=password], select {
   box-sizing: border-box;
 }
 input[type=email], select {
-  width: 100%;
+  width: 50%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -35,7 +35,7 @@ input[type=email], select {
 }
 
 input[type=submit] {
-  width: 100%;
+  width: 50%;
   background-color: #4CAF50;
   color: white;
   padding: 14px 20px;
@@ -60,6 +60,12 @@ div {
 }
 #signp {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+body  {
+  background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwoHBgYGBwgIBwYGBgoGBgcHCA8ICQYKFREWFhURExMYHSggGBolGxMTITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQ0NDw0NFSsdHx0rKysrKysrKzcrKysrKysrKysrKysrLSsrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAKgBLAMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAAAAgEH/8QAFRABAQAAAAAAAAAAAAAAAAAAABH/xAAYAQEBAQEBAAAAAAAAAAAAAAAAAQIDBP/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oADAMBAAIRAxEAPwDrwDs9QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADKUGjKUGjKUGiaUKoTSqVQmlCqE0oVQmlCqE0oVQmlCqE0oVQmlCqE0oVQmlCqE0oVQmlCqE0oVTGNqFApQqKVFK051VKmlEq6VFKFVW1FKFXWVNKFVSppQq6VFKFXSopRaulSyhV0qKUKulSUKqlTShVUqKUKulRWhVUqaUKqlRShV0qaUKqlTShVUqaUKgTSq5VQmlCqE0oVQmlCqE0oVQmlCqE0oVVKmlCqpU0oVVKmlCqpU0oVVKmlCqpU0oVVKmlCqpU0oVVKmlCqpU0oVVKmlCqpU0oVICsAAAAANBg0Bg0Bg0Bg1gAAAAAAAAAAAAAAAAAAAAAAAkEUMAaMpQaMpQaMrQAAAAAAAAABQAQAAAAAAAAAAAAAAABIkVlQltBoygVowCtGAVowRa0YBWjAK0YBWgBQAKABQAKABQAKDAK0YBWjAK0YUKkY1WAAAAAAKNYBWjAK0YBWjAK2lYBW0rAWtpWAVtKwCtpWAVtKwCtpWAVtGAlaMArRgFawAY0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf//Z");
+  background-size: auto;
+  /* background-repeat: no-repeat; */
+  background-position: center;
 }
 
 </style>
@@ -90,9 +96,9 @@ function showpassword() {
 <body>
     <form method="POST" id='form'>
         
-    Email: <input type="email" name="un" /><br>
-    Password: <input type="password" name="pw" id="pw"/><br>
-              <input type="checkbox" onclick="showpassword()">Show Password
+    <h4 style="color:#101ac8;font-family: 'Times New Roman', Times, serif;" >Enter your Email:</h4> <input type="email" name="un" /><br>
+    <h4 style="color:#101ac8;font-family: 'Times New Roman', Times, serif;" >Password:</h4> <input type="password" name="pw" id="pw"/><br>
+              <input type="checkbox" onclick="showpassword()" style="color:#101ac8;">Show Password
               <input type="checkbox" name="remember" value="Remember">Remember Me </input></br>
               <input type="submit" name="login" id="logn" onclick="return Validate()" value="login here" />
               <input type="submit" name="su" id="signp" value="signup here" />

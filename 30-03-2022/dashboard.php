@@ -1,3 +1,4 @@
+
 <html>
     <head><style> #logt  {
   background-color: #4CAF50; /* Green */
@@ -24,7 +25,7 @@
 #addi  {
   background-color: #4CAF50; /* Green */
   border: none;
-  color: white ;
+  color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -57,7 +58,7 @@
 error_reporting(0);
 if($_POST['addition']) {
     echo "hi";
-    header('Location:edit.php');
+    header('Location:signuppage.php');
 }
 if(($_POST['logt'])) {
     // setcookie("EMAIL",$_POST['un'],time() -20764);
@@ -72,7 +73,7 @@ while($row=mysqli_fetch_array($query))
 {   
 echo "hello ".$row['name']."<br><br><br>";}
 $query=mysqli_query($a,"select * from student") or die("Error in query..");
-echo "<table border=2><tr><td>employid</td><td>name</td><td>address</td><td>mobilen</td><td>email</td><td>password</td><td>Edit</td><td>Delete</td></tr>";
+echo "<table border=1><tr><td>employid</td><td>name</td><td>address</td><td>mobilen</td><td>email</td><td>password</td><td>Edit</td><td>Delete</td></tr>";
 while($row=mysqli_fetch_array($query)) 
 {  
     $user=$row["email"]; 
