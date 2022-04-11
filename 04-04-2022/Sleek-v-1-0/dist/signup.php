@@ -130,6 +130,6 @@ if(isset($_POST['signu'])){
     }
     mysqli_close($a);
     if(empty($_POST['chcbo'])) {
-      echo "Agree to the termse nad conditions first";
+      echo "Agree to the termse nad conditions first";  
     }
 }?>

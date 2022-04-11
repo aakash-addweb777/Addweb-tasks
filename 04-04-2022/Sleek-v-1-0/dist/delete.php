@@ -1,20 +1,7 @@
 <?php
 ob_start();
 ?>
-<!DOCTYPE html>
-<html>
-<head>
 
-</head>
-<!-- <body>
-<form method="post">
-ID: <input type="number" name="id" /><br/>
-
-<input type="submit" name="del" value ="Delete data"/>
-
-</form>
-</body> -->
-</html>
 
 <?php
 
