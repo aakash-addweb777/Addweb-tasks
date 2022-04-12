@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>PHP File Upload example</title>
+<title>PHP File Upload example.</title>
 </head>
 <body>
 
