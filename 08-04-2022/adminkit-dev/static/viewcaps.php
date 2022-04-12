@@ -47,10 +47,10 @@
     
     ob_start();
     echo "<table  ><thead><tr><th><i>caps</i></th></tr></thead>";
-    
+	$id1=$_REQUEST['id'];
     $a=mysqli_connect("localhost","root","","base24");
     
-    $sql = "Select * from caps";
+    $sql = "Select * from caps where Cid=$id1";
     
     $query =mysqli_query($a, $sql);
     echo "<table class=table table-striped><thead><tr><th></th><th>Id</th><th>Size</th><th>Color</th><th>Brand</th><th>Details</th><th>Material</th><th>Fabric</th></tr></thead>";

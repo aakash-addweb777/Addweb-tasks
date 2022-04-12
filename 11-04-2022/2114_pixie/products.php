@@ -31,9 +31,7 @@ https://www.tooplate.com/view/2114-pixie
     <div id="pre-header">
       <div class="container">
         <div class="row">
-          <div class="col-md-12">
-            <span>Suspendisse laoreet magna vel diam lobortis imperdiet</span>
-          </div>
+
         </div>
       </div>
     </div>
@@ -95,7 +93,7 @@ https://www.tooplate.com/view/2114-pixie
             <div id="1" class="item new col-md-4">
               <a href="single-product.html">
                 <div class="featured-item">
-                  <img src="assets/images/tss.jpeg" alt="">
+                  <img src="assets/images/tss10.jpeg" alt="">
                   <h4>Tom & jerry Special edition T shirt</h4>
                   <h6>$15.00</h6>
                 </div>
@@ -104,7 +102,7 @@ https://www.tooplate.com/view/2114-pixie
             <div id="2" class="item high col-md-4">
               <a href="single-product.html">
                 <div class="featured-item">
-                  <img src="assets/images/tss1.jpeg" alt="">
+                  <img src="assets/images/shirtss4.jpeg" alt="">
                   <h4>Erat odio rhoncus</h4>
                   <h6>$25.00</h6>
                 </div>
@@ -113,7 +111,7 @@ https://www.tooplate.com/view/2114-pixie
             <div id="3" class="item low col-md-4">
               <a href="single-product.html">
                 <div class="featured-item">
-                  <img src="assets/images/tss2.jpeg" alt="">
+                  <img src="assets/images/caps.jpeg" alt="">
                   <h4>Integer vel turpis</h4>
                   <h6>$35.00</h6>
                 </div>
@@ -122,7 +120,7 @@ https://www.tooplate.com/view/2114-pixie
             <div id="4" class="item low col-md-4">
               <a href="single-product.html">
                 <div class="featured-item">
-                  <img src="assets/images/tss3.jpeg" alt="">
+                  <img src="assets/images/track1.jpeg" alt="">
                   <h4>Sed purus quam</h4>
                   <h6>$45.00</h6>
                 </div>
@@ -131,7 +129,7 @@ https://www.tooplate.com/view/2114-pixie
             <div id="5" class="item new high col-md-4">
               <a href="single-product.html">
                 <div class="featured-item">
-                  <img src="assets/images/tss4.jpeg" alt="">
+                  <img src="assets/images/bags.jpeg" alt="">
                   <h4>Morbi aliquet</h4>
                   <h6>$55.00</h6>
                 </div>
@@ -140,7 +138,7 @@ https://www.tooplate.com/view/2114-pixie
             <div id="6" class="item new col-md-4">
               <a href="single-product.html">
                 <div class="featured-item">
-                  <img src="assets/images/tss5.jpeg" alt="">
+                  <img src="assets/images/jeans.jpeg" alt="">
                   <h4>Urna ac diam</h4>
                   <h6>$65.00</h6>
                 </div>
@@ -149,7 +147,7 @@ https://www.tooplate.com/view/2114-pixie
             <div id="7" class="item new high col-md-4">
               <a href="single-product.html">
                 <div class="featured-item">
-                  <img src="assets/images/tss6.jpeg" alt="">
+                  <img src="assets/images/h3.jpeg" alt="">
                   <h4>Proin eget imperdiet</h4>
                   <h6>$75.00</h6>
                 </div>
@@ -158,20 +156,13 @@ https://www.tooplate.com/view/2114-pixie
             <div id="8" class="item low new col-md-4">
               <a href="single-product.html">
                 <div class="featured-item">
-                  <img src="assets/images/tss7.jpeg" alt="">
+                  <img src="assets/images/ss2.jpeg" alt="">
                   <h4>Nullam risus nisl</h4>
                   <h6>$85.00</h6>
                 </div>
               </a>
             </div>
-            <div id="9" class="item new col-md-4">
-              <a href="single-product.html">
-                <div class="featured-item">
-                  <img src="assets/images/tss8.jpeg" alt="">
-                  <h4>Cras tempus</h4>
-                  <h6>$95.00</h6>
-                </div>
-              </a>
+            
             </div>
         </div>
     </div>

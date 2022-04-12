@@ -47,10 +47,10 @@
     
     ob_start();
     echo "<table  ><thead><tr><th><i>Sunglasses</i></th></tr></thead>";
-    
+	$id1=$_REQUEST['id'];
     $a=mysqli_connect("localhost","root","","base24");
     
-    $sql = "Select * from sunglasses";
+    $sql = "Select * from sunglasses where Ssid=$id1";
     
     $query =mysqli_query($a, $sql);
     echo "<table class=table table-striped><thead><tr><th></th><th>Id</th><th>Size</th><th>Color</th><th>Brand</th><th>Details</th><th>Material</th><th>Fabric</th></tr></thead>";

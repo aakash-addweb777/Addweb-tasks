@@ -44,7 +44,7 @@
                 <div class="row">
 						<div class="col-10 col-md-2">
 							<div class="card">
-								<img class="card-img-top" src="images/photos/td1.jpeg" alt="Unsplash">
+								<img class="card-img-top" src="images/photos/tss3.jpeg" alt="Unsplash">
 								<div class="card-header">
 									<h5 class="card-title mb-0">T-shirts</h5>
 								</div>
@@ -59,7 +59,7 @@
                 <div class="row"> -->
 						<div class="col-10 col-md-2">
 							<div class="card">
-								<img class="card-img-top" src="images/photos/sd3.jpeg" alt="Unsplash">
+								<img class="card-img-top" src="images/photos/shirtss4.jpeg" alt="Unsplash">
 								<div class="card-header">
 									<h5 class="card-title mb-0">Shirts</h5>
 								</div>
@@ -74,7 +74,7 @@
                 <div class="row"> -->
 						<div class="col-10 col-md-2">
 							<div class="card">
-								<img class="card-img-top" src="images/photos/cd.jpeg" alt="Unsplash">
+								<img class="card-img-top" src="images/photos/caps2.jpeg" alt="Unsplash">
 								<div class="card-header">
 									<h5 class="card-title mb-0">caps</h5>
 								</div>
@@ -89,7 +89,7 @@
                 <div class="row"> -->
 						<div class="col-12 col-md-2">
 							<div class="card">
-								<img class="card-img-top" src="images/photos/trd1.jpeg" alt="Unsplash">
+								<img class="card-img-top" src="images/photos/track1.jpeg" alt="Unsplash">
 								<div class="card-header">
 									<h5 class="card-title mb-0">Trackpants</h5>
 								</div>
@@ -104,7 +104,7 @@
                 <div class="row"> -->
 						<div class="col-12 col-md-2">
 							<div class="card">
-								<img class="card-img-top" src="images/photos/bd.jpeg" alt="Unsplash">
+								<img class="card-img-top" src="images/photos/bags.jpeg" alt="Unsplash">
 								<div class="card-header">
 									<h5 class="card-title mb-0">Bags</h5>
 								</div>
@@ -119,7 +119,7 @@
                 <div class="row"> -->
 						<div class="col-10 col-md-2">
 							<div class="card">
-								<img class="card-img-top" src="images/photos/jd.jpeg" alt="Unsplash">
+								<img class="card-img-top" src="images/photos/jeans.jpeg" alt="Unsplash">
 								<div class="card-header">
 									<h5 class="card-title mb-0">Jeans</h5>
 								</div>
@@ -149,7 +149,7 @@
                 <div class="row"> -->
 						<div class="col-10 col-md-2">
 							<div class="card">
-								<img class="card-img-top" src="images/photos/ssd.jpeg" alt="Unsplash">
+								<img class="card-img-top" src="images/photos/sunglasses.jpeg" alt="Unsplash">
 								<div class="card-header">
 									<h5 class="card-title mb-0">Sunglasses</h5>
 								</div>
