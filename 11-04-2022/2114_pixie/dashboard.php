@@ -1,3 +1,6 @@
+<?php
+ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,6 +26,7 @@
 Tooplate 2114 Pixie
 https://www.tooplate.com/view/2114-pixie
 -->
+
   </head>
 
   <body>
@@ -63,70 +67,39 @@ https://www.tooplate.com/view/2114-pixie
             </div>
           </div>
           <div class="col-md-12">
+            
             <div class="owl-carousel owl-theme">
-              <a href="alltshirts.php">
+            <?php
+            try{
+            $a=new PDO("mysql:host=localhost;dbname=base24","root","") or die("Error in coonection");
+            $query="select * from images";
+            $q = $a->query($query);
+            $q->setFetchMode(PDO::FETCH_ASSOC);
+            while($row=$q->fetch()) {
+              $a=$row['tnames'];
+            ?>
+              <a  href=<?php echo "$a" ?>>
                 <div class="featured-item">
-                  <img src="assets/images/tss5.jpeg" alt="Item 1">
-                  <h4>Tshirts</h4>
-                  <h6>View T-Shirts</h6>
+                  <img src=<?php echo "{$row["img_url"]}" ?> height="325px" width="250px" alt="Item 1">
+                  <br>
+                  <h5><?php echo "{$row["name"]}" ?></h5>
+                  <h6 style="color:grey;">View <?php echo "{$row["name"]}" ?></h6>
                 </div>
               </a>
-              
-              <a href="shirts.php">
-                <div class="featured-item">
-                  <img src="assets/images/shirtss5.jpeg" alt="Item 2">
-                  <h4>Shirts</h4>
-                  <h6>View Shirts</h6>
-                </div>
-              </a>
-              <a href="caps.php">
-                <div class="featured-item">
-                  <img src="assets/images/caps.jpeg" alt="Item 3">
-                  <h4>Caps</h4>
-                  <h6>View Caps</h6>
-                </div>
-              </a>
-              <a href="trackpants.php">
-                <div class="featured-item">
-                  <img src="assets/images/track1.jpeg" alt="Item 4">
-                  <h4>Trackpants</h4>
-                  <h6>View Trackpants</h6>
-                </div>
-              </a>
-              <a href="bags.php">
-                <div class="featured-item">
-                  <img src="assets/images/bags.jpeg" alt="Item 5">
-                  <h4>Bags</h4>
-                  <h6>View Bags</h6>
-                </div>
-              </a>
-              <a href="jeans.php">
-                <div class="featured-item">
-                  <img src="assets/images/jeans.jpeg" alt="Item 6">
-                  <h4>Jeans</h4>
-                  <h6>View Jeans</h6>
-                </div>
-              </a>
-              <a href="headphones.php">
-                <div class="featured-item">
-                  <img src="assets/images/hd3.jpg" alt="Item 7">
-                  <h4>Headphones</h4>
-                  <h6>View Headphones</h6>
-                </div>
-              </a>
-              <a href="sunglasses.php">
-                <div class="featured-item">
-                  <img src="assets/images/sunglasses.jpeg" alt="Item 8">
-                  <h4>Sunglasses</h4>
-                  <h6>View Sunglasses</h6>
-                </div>
-              </a>
-              
+              <?php
+            }
+          }
+          catch (PDOException $e) {
+            die("Could not connect to the database $dbname :" . $e->getMessage());
+        }
+           ?>
             </div>
+            
           </div>
         </div>
       </div>
     </div>
+    
     <!-- Featred Ends Here -->
 
 

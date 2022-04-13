@@ -51,7 +51,7 @@ https://www.tooplate.com/view/2114-pixie
               <a class="nav-link" href="dashboard.php">Home</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="products.html">Products
+              <a class="nav-link" href="products.php">Products
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -92,17 +92,37 @@ https://www.tooplate.com/view/2114-pixie
     <div class="featured container no-gutter">
 
         <div class="row posts">
-            <div id="1" class="item new col-md-4">
-              <a href="tshirts.php">
-                <div class="featured-item">
-                  <img src="assets/images/tss10.jpeg" alt="">
-                  <h4>Tom & jerry Special edition T shirt</h4>
-                  <h6>$15.00</h6>
+        <?php
+            try{
+            $a=new PDO("mysql:host=localhost;dbname=base24","root","") or die("Error in coonection");
+            $query="select * from tshirts";
+            $q = $a->query($query);
+            $q->setFetchMode(PDO::FETCH_ASSOC);
+            while($row=$q->fetch()) {
+              $img=$row["img_url"];
+              $name=$row["name"];
+              $id=$row["Tid"];
+              $price=$row["Price"];
+            ?>
+            <div  class="item new col-md-4">
+             
+                <div class=featured-item>
+                <?php echo "<a href=tshirts.php?id=$id><img src='$img'  height=400px width=300px ></a>
+                  <a href=tshirts.php?id=$id><h4> $name </h4></a>
+                  <a href=tshirts.php?id=$id><h6>Rs $price</h6></a>"
+                ?>
                 </div>
-              </a>
+              
             </div>
+            <?php
+            }
+          }
+          catch (PDOException $e) {
+            die("Could not connect to the database $dbname :" . $e->getMessage());
+        }
+           ?>
             
-            <div id="2" class="item high col-md-4">
+            <!-- <div id="2" class="item high col-md-4">
               <a href="single-product.html">
                 <div class="featured-item">
                   <img src="assets/images/tss1.jpeg" alt="">
@@ -173,11 +193,11 @@ https://www.tooplate.com/view/2114-pixie
                   <h6>$95.00</h6>
                 </div>
               </a>
-            </div>
+            </div> -->
         </div>
     </div>
 
-    <div class="page-navigation">
+    <!-- <div class="page-navigation">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -190,7 +210,7 @@ https://www.tooplate.com/view/2114-pixie
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Featred Page Ends Here -->
 
 
