@@ -67,7 +67,7 @@ ob_start();
 try {
 $conn = new PDO("mysql:host=localhost;dbname=base24", "root", "");
 
-$sql="select * from wishlist";
+$sql="select * from addcart";
 $q=$conn->query($sql);
 //$query=mysqli_query($conn,"") or die("erroe in query");
 $q->setFetchMode(PDO::FETCH_ASSOC);
@@ -84,10 +84,10 @@ $img=$row['img_url'];
                 <div class="featured-item">
                   <?php
                    
-                    echo "<a href=wishlist.php?id=$id><img src=$img  height=400px width=300px ></a>
-                   <a href=wishlist.php?id=$id><h4> $name </h4></a>
+                    echo "<a href=addcart.php?id=$id><img src=$img  height=400px width=300px ></a>
+                   <a href=addcart.php?id=$id><h4> $name </h4></a>
                   
-                   <a href=wishlist.php?id=$id><h6>Rs $price</h6></a>";
+                   <a href=addcart.php?id=$id><h6>Rs $price</h6></a>";
                   //  <?php echo "<a class='btn btn-small' pull-right href=delete_wishlist.php?id=$id> Delete Product</a>" ?>
                
                   

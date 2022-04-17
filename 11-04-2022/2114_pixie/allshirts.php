@@ -94,7 +94,7 @@ https://www.tooplate.com/view/2114-pixie
         <div class="row posts">
         <?php
             try{
-            $a=new PDO("mysql:host=localhost;dbname=base24","root","") or die("Error in coonection");
+            $a=new PDO("mysql:host=localhost;dbname=base24","root","") or die("Error in connection");
             $query="select * from shirts";
             $q = $a->query($query);
             $q->setFetchMode(PDO::FETCH_ASSOC);

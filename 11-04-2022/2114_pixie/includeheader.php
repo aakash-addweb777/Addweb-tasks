@@ -1,3 +1,25 @@
+<head>
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</head>
+
 <div id="pre-header">
       <div class="container">
         <div class="row">
@@ -24,11 +46,13 @@
               <a class="nav-link" href="products.php">Products</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
+              <a class="nav-link" href="wishlist.php">Wishlist</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact Us</a>
+              <a class="nav-link" href="addcart.php">Your cart</a>
+              <form enctype="multipart/form-data" method="post">
             </li>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search products" title="Type in a name">
           </ul>
         </div>
       </div>

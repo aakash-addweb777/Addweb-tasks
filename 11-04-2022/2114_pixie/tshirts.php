@@ -77,9 +77,10 @@ https://www.tooplate.com/view/2114-pixie
             </div>
           </div>
           <div class="col-md-6">
-          <div class="product-slider">
-          <?php $id=$_REQUEST['id']; echo "<a href=wishlist.php?id=$id&table=tshirts>"; ?><i class="fa fa-heart-o" style="color:grey; font-size:24px"></i></a>
-            <div id="slider" class="flexslider">
+            
+          <div class="product-slider">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+          
             
           <?php
           $id=$_REQUEST['id'];
@@ -101,44 +102,14 @@ https://www.tooplate.com/view/2114-pixie
               $size=$row["size"];
               $material=$row["Material"];
             ?>
-          
+          <?php $id=$_REQUEST['id']; echo "<a href=wishlistinsert.php?id=$id&name=$name&price=$price&img_url=$img&brand=$brand>"; ?><i class="fa fa-heart-o" style="color:grey; font-size:24px"></i></a>
+            <div id="slider" class="flexslider">
           
               <?php echo "<a href=tshirts.php?id=$id><img src='$img'  height=400px width=300px ></a>"
                  
                 ?>
             
-                <!-- <ul class="slides">
-                  <li>
-                    <img src="assets/images/tss5.jpeg" />
-                  </li>
-                  <li>
-                    <img src="assets/images/tss2.jpeg" />
-                  </li>
-                  <li>
-                    <img src="assets/images/tss3.jpeg" />
-                  </li>
-                  <li>
-                    <img src="assets/images/tss4.jpeg" />
-                  </li>
-                  items mirrored twice, total of 12
-                </ul> -->
-              <!-- </div> -->
-              <!-- <div id="carousel" class="flexslider">
-                <ul class="slides">
-                  <li>
-                    <img src="assets/images/tss5.jpeg" />
-                  </li>
-                  <li>
-                    <img src="assets/images/tss2.jpeg" />
-                  </li>
-                  <li>
-                    <img src="assets/images/tss3.jpeg" />
-                  </li>
-                  <li>
-                    <img src="assets/images/tss4.jpeg" />
-                  </li>
-                  items mirrored twice, total of 12
-                </ul>-->
+                
                 <?php
             }
           }
@@ -161,8 +132,8 @@ https://www.tooplate.com/view/2114-pixie
                 	onfocus="if(this.value == '1') { this.value = ''; }" 
                     onBlur="if(this.value == '') { this.value = '1';}"
                     value="1">
-                <input type="submit" class="button" value="Add to Wishlist!"> &nbsp;&nbsp;&nbsp;
-                <?php echo "<a href=wishlist.php?id=$id&table=tshirts>"; ?><i class="fa fa-heart-o" style="color:grey; font-size:24px"></i></a>
+                 &nbsp;&nbsp;&nbsp;
+                
               </form>
               <div class="down-content">
               
@@ -179,8 +150,11 @@ https://www.tooplate.com/view/2114-pixie
                   <h6>Price: <span><?php echo"$price" ?></span></h6>
                 </div>
                 <div class="share">
-                  <h6>Share: <span><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-twitter"></i></a></span></h6>
+                  <h6>Share: <span><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-twitter"></i></a>
+                   <?php $id=$_REQUEST['id']; echo "<a href=addtocart.php?id=$id&name=$name&price=$price&img_url=$img&brand=$brand>"; ?><i class="button"></i>
+                  
                 </div>
+                
               </div>
             </div>
           </div>
@@ -200,71 +174,33 @@ https://www.tooplate.com/view/2114-pixie
               <h1>You May Also Like</h1>
             </div>
           </div>
-          <div class="col-md-12">
+          <div class="col-md-12">            
             <div class="owl-carousel owl-theme">
-              <a href="single-product.html">
+            <?php
+            try{
+            $a=new PDO("mysql:host=localhost;dbname=base24","root","") or die("Error in coonection");
+            $query="select * from tshirts where not Tid=$id";
+            $q = $a->query($query);
+            $q->setFetchMode(PDO::FETCH_ASSOC);
+            while($row=$q->fetch()) {
+              
+              $a=$row['name'];
+            ?>
+              <a href=<?php echo "$a" ?>>
                 <div class="featured-item">
-                  <img src="assets/images/item-01.jpg" alt="Item 1">
-                  <h4>Proin vel ligula</h4>
-                  <h6>$15.00</h6>
+                <img src=<?php echo "{$row["img_url"]}" ?> height="325px" width="250px" alt="Item 1">
+                  <br>
+                  <h5><?php echo "{$row["name"]}" ?></h5>
                 </div>
               </a>
-              <a href="single-product.html">
-                <div class="featured-item">
-                  <img src="assets/images/item-02.jpg" alt="Item 2">
-                  <h4>Erat odio rhoncus</h4>
-                  <h6>$25.00</h6>
-                </div>
-              </a>
-              <a href="single-product.html">
-                <div class="featured-item">
-                  <img src="assets/images/item-03.jpg" alt="Item 3">
-                  <h4>Integer vel turpis</h4>
-                  <h6>$35.00</h6>
-                </div>
-              </a>
-              <a href="single-product.html">
-                <div class="featured-item">
-                  <img src="assets/images/item-04.jpg" alt="Item 4">
-                  <h4>Sed purus quam</h4>
-                  <h6>$45.00</h6>
-                </div>
-              </a>
-              <a href="single-product.html">
-                <div class="featured-item">
-                  <img src="assets/images/item-05.jpg" alt="Item 5">
-                  <h4>Morbi aliquet</h4>
-                  <h6>$55.00</h6>
-                </div>
-              </a>
-              <a href="single-product.html">
-                <div class="featured-item">
-                  <img src="assets/images/item-06.jpg" alt="Item 6">
-                  <h4>Urna ac diam</h4>
-                  <h6>$65.00</h6>
-                </div>
-              </a>
-              <a href="single-product.html">
-                <div class="featured-item">
-                  <img src="assets/images/item-04.jpg" alt="Item 7">
-                  <h4>Proin eget imperdiet</h4>
-                  <h6>$75.00</h6>
-                </div>
-              </a>
-              <a href="single-product.html">
-                <div class="featured-item">
-                  <img src="assets/images/item-05.jpg" alt="Item 8">
-                  <h4>Nullam risus nisl</h4>
-                  <h6>$85.00</h6>
-                </div>
-              </a>
-              <a href="single-product.html">
-                <div class="featured-item">
-                  <img src="assets/images/item-06.jpg" alt="Item 9">
-                  <h4>Cras tempus</h4>
-                  <h6>$95.00</h6>
-                </div>
-              </a>
+              <?php
+            }
+          }
+          catch (PDOException $e) {
+            die("Could not connect to the database $dbname :" . $e->getMessage());
+        }
+           ?>
+             
             </div>
           </div>
         </div>
