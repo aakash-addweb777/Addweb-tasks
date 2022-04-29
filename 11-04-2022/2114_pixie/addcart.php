@@ -76,7 +76,7 @@ while($row=$q->fetch())
 $name=$row['pname'];
 $id=$row['id'];
 $price=$row['Price'];
-
+$brand=$row["Brand"];
 $img=$row['img_url'];
 ?>
             <div  class="item new col-md-4">

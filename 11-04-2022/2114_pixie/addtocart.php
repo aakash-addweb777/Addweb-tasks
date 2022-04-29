@@ -4,9 +4,9 @@ ob_start();
 <?php
 $id=$_REQUEST['id'];
 $img=$_REQUEST['img_url'];
-$brand=$_REQUEST['brand'];
-$price=$_REQUEST['price'];
-$name=$_REQUEST['name'];
+$brand=$_REQUEST['Brand'];
+$price=$_REQUEST['Price'];
+$name=$_REQUEST['pname'];
 
 
 try {

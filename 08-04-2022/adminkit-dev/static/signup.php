@@ -1,3 +1,6 @@
+<?php
+ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,30 +40,34 @@
 						<div class="card">
 							<div class="card-body">
 								<div class="m-sm-4">
-									<form>
+									<form method="post">
 										<div class="mb-3">
-											<label class="form-label">Name</label>
-											<input class="form-control form-control-lg" type="text" name="name" placeholder="Enter your name" />
+											<label class="form-label">ID</label>
+											<input class="form-control form-control-lg" type="number" name="employid" placeholder="Enter your Id" />
 										</div>
 										<div class="mb-3">
-											<label class="form-label">Company</label>
-											<input class="form-control form-control-lg" type="text" name="company" placeholder="Enter your company name" />
+											<label class="form-label">First Name</label>
+											<input class="form-control form-control-lg" type="text" name="firstname" placeholder="Enter your First name" />
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Last Name</label>
+											<input class="form-control form-control-lg" type="text" name="lastname" placeholder="Enter your Last Name" />
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Email</label>
-											<input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
+											<input class="form-control form-control-lg" type="text" name="email" placeholder="Enter Email" />
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Mobile number</label>
+											<input class="form-control form-control-lg" type="number" name="mobileno" placeholder="Enter Mobile Number" />
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Password</label>
-											<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter password" />
+											<input class="form-control form-control-lg" type="text" name="password" placeholder="Enter password" />
 										</div>
 										<div class="mb-3">
-											<label class="form-label">Password</label>
-											<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter password" />
-										</div>
-										<div class="mb-3">
-											<label class="form-label">Password</label>
-											<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter password" />
+											<label class="form-label">Confirm Password</label>
+											<input class="form-control form-control-lg" type="text" name="cpassword" placeholder="Confirm password" />
 										</div>
 										<small>
             <a href="#" >Already have an account</a>
@@ -68,7 +75,7 @@
           </small>
 										<div class="text-center mt-3">
 											
-											<input type="submit" class="btn btn-primary" name="signup" value="Sign Up"></input>
+											<input type="submit" class="btn btn-primary" name="signup" value="SignUp"></input>
 											<a href="signin.php" class="btn btn-lg btn-primary">Sign In</a>
 											<!-- <button type="submit" class="btn btn-lg btn-primary">Sign up</button> -->
 										</div>
@@ -89,22 +96,23 @@
 
 </html>
 <?php
-error_reporting(0);
+
 if(isset($_POST['signup'])) {
-    $employid=$_POST['employid'];
-    $name=$_POST['name'];
-    $address=$_POST['address'];
+    $id=$_POST['employid'];
+    $fname=$_POST['firstname'];
+	$lname=$_POST['lastname'];
+    $email=$_POST['email'];
     $mobilen=$_POST['mobileno'];
-    $email=$_POST['eml'];
-    $password=$_POST['pw'];
+    
+    $password=$_POST['password'];
+	$cpassword=$_POST['cpassword'];
     $a=mysqli_connect("localhost","root","","base24") or die("Error in connecting to database");
-    $query=mysqli_query($a,"Insert into student values($employid,'$name','$address',$mobilen,'$email','$password')") or die("Error in inserting values into database");
+    $query=mysqli_query($a,"Insert into ntable values($id,'$fname','$lname','$email',$mobilen,'$password')") or die("Error in inserting values into database");
     if($query) {
-        echo "Data inserted";
-        setcookie("EMAIL",$_POST['eml'],time() +86400);
-        setcookie("USERNAME",$_POST['un'],time() +86400);
-        // setcookie("PASSWORD",$_POST['pw'],time() +86400);
-        header('Location:loginpage.php');
+        
+        
+        
+        header('Location:signin.php');
     }
     else {
         echo "Data not inserted";

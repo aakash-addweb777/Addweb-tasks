@@ -59,7 +59,7 @@
     {
         $id=$row["Jid"];
         echo "<tbody><tr>";
-        echo "<td rowspan=10>"."<img src=".$row["img_url"]." height=400px width=400 px ></td>";
+        echo "<td rowspan=10>"."<img src=".$row["img_url"]." height=200px width=200 px ></td>";
         echo "<td>".$row["Jid"]."</td>";
         echo "<td>".$row["size"]."</b></td>";
         echo "<td>".$row["Color"]."</td>";

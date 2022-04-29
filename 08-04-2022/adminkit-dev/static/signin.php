@@ -1,3 +1,6 @@
+<?php  
+ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +31,7 @@
 					<div class="d-table-cell align-middle">
 
 						<div class="text-center mt-4">
-							<h1 class="h2">Welcome back, Charles</h1>
+							<h1 class="h2">Welcome back</h1>
 							<p class="lead">
 								Sign in to your account to continue
 							</p>
@@ -38,9 +41,13 @@
 							<div class="card-body">
 								<div class="m-sm-4">
 									<div class="text-center">
-										<img src="img/avatars/avatar.jpg" alt="Charles Hall" class="img-fluid rounded-circle" width="132" height="132" />
+										<img src="images/avatars/avatar.jpg" alt="Charles Hall" class="img-fluid rounded-circle" width="132" height="132" />
 									</div>
-									<form>
+									<form method="post">
+									<div class="mb-3">
+											<label class="form-label">First name</label>
+											<input class="form-control form-control-lg" type="text" name="firstname" placeholder="Enter your firstname" />
+										</div>
 										<div class="mb-3">
 											<label class="form-label">Email</label>
 											<input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
@@ -52,14 +59,14 @@
 										</div>
 										<div>
 											<label class="form-check">
-            <input class="form-check-input" type="checkbox" value="remember-me" name="remember-me" checked>
+            <input class="form-check-input" type="checkbox" value="remember-me" name="rememberme" checked>
             <span class="form-check-label">
               Remember me next time
             </span>
           </label>
 										</div>
 										<div class="text-center mt-3">
-											<a href="dashboard.php" class="btn btn-lg btn-primary" name="signin">Sign in</a>
+										<input type="submit" class="btn btn-primary" name="signin" value="SignIn"></input>
 											<a href="signup.php" class="btn btn-lg btn-primary">Sign up</a>
 
 											<!-- <button type="submit" class="btn btn-lg btn-primary">Sign in</button> -->
@@ -82,27 +89,28 @@
 </html>
 <?php  
 ob_start();
-if (isset($_POST['Signin'])) {
+if (isset($_POST['signin'])) {
      $email=$_POST['email'];
      $password=$_POST['password'];
+	
   
 $a=mysqli_connect("localhost","root","","base24") or die("Error in Connection");
-$q="select * from ntable where email='$email' and password='$password'";
-echo $q;
+$q="select * from ntable where email='$email' and password='$password'"or die("Error in query");
+// echo $q;
 $query=mysqli_query($a,$q) or die("Error in query");
 
 $rows=mysqli_num_rows($query);
 if($rows>0){
-    echo "Hello";
-  
+    
+	setcookie("Email",$_POST['email'],time() +20764);
+	setcookie("Firstname",$_POST['firstname'],time() +20764);
   header('Location:dashboard.php');
 }
 else{
-  echo "<script>alert('Incorrect Username or password');</script>";
+  echo "<script>alert('Incorrect Username or password')</script>";
   header('Location:signin.php');
 }
 mysqli_close($a);
 }
-if (isset($_POST['logout'])) {
-	header('Location:logout.php')
+
 ?>

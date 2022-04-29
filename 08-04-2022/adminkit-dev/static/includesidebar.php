@@ -1,64 +1,84 @@
 <div class="sidebar-content js-simplebar">
-				<a class="sidebar-brand" href="indexn.html">
-          <span class="align-middle">AdminKit</span>
-        </a>
+	<a class="sidebar-brand" href="dashboard1.php">
+		<span class="align-middle">Dashboard</span>
+	</a>
 
-				<ul class="sidebar-nav">
-					<li class="sidebar-header">
-						Pages
-					</li>
+	<ul class="sidebar-nav">
+		<li class="sidebar-header">
 
-					<li class="sidebar-item active">
-						<a class="sidebar-link" href="dashboard.php">
-              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Product details</span>
-            </a>
-					</li>
+		</li>
+		<!-- <li class="sidebar-item">
+			<a class="sidebar-link" href="update.php">
+				<i class="align-middle" data-feather="home"></i> <span class="align-middle">Dashboard</span>
+			</a>
+		</li> -->
+		<?php
+		
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="tshirts.php">
-              <i class="align-middle" data-feather="type"></i> <span class="align-middle">Tshirts</span>
-            </a>
-					</li>
+		error_reporting(0);
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="shirts.php">
-              <i class="align-middle" data-feather="star"></i> <span class="align-middle">Shirts</span>
-            </a>
-					</li>
+		ob_start();
+		
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="caps.php">
-              <i class="align-middle" data-feather="sun"></i> <span class="align-middle">Caps</span>
-            </a>
-					</li>
+		$a = mysqli_connect("localhost", "root", "", "base24");
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="trackpants.php">
-              <i class="align-middle" data-feather="play"></i> <span class="align-middle">Trackpants</span>
-            </a>
-					</li>
-                    <li class="sidebar-item">
-						<a class="sidebar-link" href="bags.php">
-              <i class="align-middle" data-feather="aperture"></i> <span class="align-middle">Bags</span>
-            </a>
-					</li>
-                    <li class="sidebar-item">
-						<a class="sidebar-link" href="jeans.php">
-              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Jeans</span>
-            </a>
-					</li>
-                    <li class="sidebar-item">
-						<a class="sidebar-link" href="headphones.php">
-              <i class="align-middle" data-feather="headphones"></i> <span class="align-middle">Headphones</span>
-            </a>
-					</li>
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="sunglasses.php">
-              <i class="align-middle" data-feather="umbrella"></i> <span class="align-middle">Sunglasses</span>
-            </a>
-					</li>
+		$sql = "Select * from categories";
 
-					<!-- <li class="sidebar-header">
+		$query = mysqli_query($a, $sql);
+
+		while ($row = mysqli_fetch_array($query)) {
+			$id = $row["id"];
+			$name=$row["name"];
+			$purl=$row['purl'];
+			?>
+		<li class="sidebar-item">
+			<a class="sidebar-link" href="product.php?name=<?php echo $name ?>">
+				<i class="align-middle" data-feather="type"></i> <span class="align-middle"><?php echo $name ?></span>
+			</a>
+		</li>
+<?php 
+		}
+		mysqli_close($a);
+		?>
+		<!-- <li class="sidebar-item">
+			<a class="sidebar-link" href="shirts.php">
+				<i class="align-middle" data-feather="star"></i> <span class="align-middle">Shirts</span>
+			</a>
+		</li>
+
+		<li class="sidebar-item">
+			<a class="sidebar-link" href="caps.php">
+				<i class="align-middle" data-feather="sun"></i> <span class="align-middle">Caps</span>
+			</a>
+		</li>
+
+		<li class="sidebar-item">
+			<a class="sidebar-link" href="trackpants.php">
+				<i class="align-middle" data-feather="play"></i> <span class="align-middle">Trackpants</span>
+			</a>
+		</li>
+		<li class="sidebar-item">
+			<a class="sidebar-link" href="bags.php">
+				<i class="align-middle" data-feather="aperture"></i> <span class="align-middle">Bags</span>
+			</a>
+		</li>
+		<li class="sidebar-item">
+			<a class="sidebar-link" href="jeans.php">
+				<i class="align-middle" data-feather="book"></i> <span class="align-middle">Jeans</span>
+			</a>
+		</li>
+		<li class="sidebar-item">
+			<a class="sidebar-link" href="headphones.php">
+				<i class="align-middle" data-feather="headphones"></i> <span class="align-middle">Headphones</span>
+			</a>
+		</li>
+		<li class="sidebar-item">
+			<a class="sidebar-link" href="sunglasses.php">
+				<i class="align-middle" data-feather="umbrella"></i> <span class="align-middle">Sunglasses</span>
+			</a>
+		</li> -->
+
+		<!-- <li class="sidebar-header">
 						Tools & Components
 					</li>
 
@@ -109,15 +129,15 @@
 					</li>
 				</ul> -->
 
-				<!-- <div class="sidebar-cta"> -->
-					<!-- <div class="sidebar-cta-content"> -->
-						<!-- <strong class="d-inline-block mb-2">Upgrade to Pro</strong> -->
-						<!-- <div class="mb-3 text-sm">
+		<!-- <div class="sidebar-cta"> -->
+		<!-- <div class="sidebar-cta-content"> -->
+		<!-- <strong class="d-inline-block mb-2">Upgrade to Pro</strong> -->
+		<!-- <div class="mb-3 text-sm">
 							Are you looking for more components? Check out our premium version.
 						</div> -->
-						<!-- <div class="d-grid">
+		<!-- <div class="d-grid">
 							<a href="upgrade-to-pro.html" class="btn btn-primary">Upgrade to Pro</a>
 						</div> -->
-					<!-- </div> -->
-				<!-- </div> -->
-			</div>
+		<!-- </div> -->
+		<!-- </div> -->
+</div>

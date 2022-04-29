@@ -12,7 +12,7 @@ ob_start();
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 
-    <title>Pixie - Ecommerce HTML5 Template</title>
+    <title>Pixie </title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,8 +26,14 @@ ob_start();
 Tooplate 2114 Pixie
 https://www.tooplate.com/view/2114-pixie
 -->
-
-
+<style>
+.detail-box {
+  margin: 13px 16px 14px -253px;
+    vertical-align: middle;
+    border-style: none;
+    
+}
+</style>
   </head>
 
   <body>
@@ -36,22 +42,116 @@ https://www.tooplate.com/view/2114-pixie
     <?php
     include('includeheader.php');
     ?>
+    
     <!-- Page Content -->
     <!-- Banner Starts Here -->
+    
     <div class="banner">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="caption">
-              <h2>Ecommerce HTML Template</h2>
-              <div class="line-dec"></div>
-              <p>Pixie HTML Template can be converted into your desired CMS theme. Total <strong>5 pages</strong> included. You can use this Bootstrap v4.1.3 layout for any CMS. 
-              <br><br>Please tell your friends about <a rel="nofollow" href="https://www.facebook.com/tooplate/">Tooplate</a> free template site. Thank you. Photo credit goes to <a rel="nofollow" href="https://www.pexels.com">Pexels website</a>.</p>
-              <div class="main-button">
-                <a href="#">Order Now!</a>
-              </div>
+    <section class="slider_section ">
+
+            <div class="slider_bg_box">
+              
+               <img src="./images/slider.jpg" alt="">
+               
             </div>
-          </div>
+            <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+              
+               <div class="carousel-inner">
+                 
+                  <div class="carousel-item active">
+                    
+                     <div class="container ">
+                       
+                        <div class="row">
+                           <div class="col-md-7 col-lg-6 ">
+                             
+                              <div class="detail-box">
+                                
+                                 <h1>
+                                   
+                                    <img src="./images/banner-bg.jpg">
+                                    <br>
+                                    
+                                 </h1>
+                                 <p>
+                                    <i>20% off on this new collection </i>
+                                 </p>
+                                 <div class="btn-box">
+                                    <a href="" class="btn1">
+                                    Shop Now
+                                    </a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="carousel-item ">
+                     <div class="container ">
+                        <div class="row">
+                           <div class="col-md-7 col-lg-6 ">
+                              <div class="detail-box">
+                                 <h1>
+                                   <div>
+                                      <img src="./images/banner-bg.jpg" alt="Image">
+                                   </div>
+                                    
+                                    
+                                 </h1>
+                                 <p>
+                                    <i>20% off on this new collection </i></p>
+                                 <div class="btn-box">
+                                    <a href="" class="btn1">
+                                    Shop Now
+                                    </a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="carousel-item">
+                     <div class="container ">
+                        <div class="row">
+                           <div class="col-md-7 col-lg-6 ">
+                              <div class="detail-box">
+                                 <h1>
+                                    <div>
+                                       <img src="./images/banner-bg.jpg" alt="Image">
+                                    </div>
+                                    <br>
+                                    
+                                 </h1>
+                                 <p>
+                                   <i>20% off on this new collection </i>
+                                 </p>
+                                 <div class="btn-box">
+                                    <a href="" class="btn1">
+                                    Shop Now
+                                    </a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <ol class="carousel-indicators">
+                     <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+                     <li data-target="#customCarousel1" data-slide-to="1"></li>
+                     <li data-target="#customCarousel1" data-slide-to="2"></li>
+                  </ol>
+               </div>
+            </div>
+         </section>
+      <div class="container">
+        
+        <div class="row">
+          
+          <div class="col-md-12">
+            
+            
         </div>
       </div>
     </div>

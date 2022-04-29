@@ -88,7 +88,7 @@ $img=$row['img_url'];
                    <a href=wishlist.php?id=$id><h4> $name </h4></a>
                   
                    <a href=wishlist.php?id=$id><h6>Rs $price</h6></a>";
-                  //  <?php echo "<a class='btn btn-small' pull-right href=delete_wishlist.php?id=$id> Delete Product</a>" ?>
+                    echo "<a class='btn btn-small' pull-right href=deletewishlist.php?id=$id> Delete Product</a>" ?>
                
                   
                   

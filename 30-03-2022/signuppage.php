@@ -80,11 +80,7 @@ body  {
             <input type="number" placeholder="Enter Mobile number" name="mobileno" /><br>
             <input type="email" placeholder="Enter Email id" name="eml" /></br>
              <input type="password" name="pw" placeholder="Enter password" id="pw" /><br>
-         <input type="password" name="cpw" id="cpw" placeholder="Enter password again" /><br>
-        <!-- commision:     <input type="text" name="comm" /></br>
-        experience_in_yrs:     <input type="text" name="exinyrs" /><br>
-        date_of_joining:     <input type="text" name="dtofj" /></br>
-        country:     <input type="text" name="country" /><br> -->
+         <input type="password" name="cpw" id="cpw" placeholder="Enter password again" /><br>       
         <input type="submit" name="login"  onclick="return Validate()" value="Login here"></br>
         
     </form>

@@ -102,7 +102,7 @@ https://www.tooplate.com/view/2114-pixie
               $size=$row["size"];
               $material=$row["Material"];
             ?>
-          <?php $id=$_REQUEST['id']; echo "<a href=wishlistinsert.php?id=$id&name=$name&price=$price&img_url=$img&brand=$brand>"; ?><i class="fa fa-heart-o" style="color:grey; font-size:24px"></i></a>
+          
             <div id="slider" class="flexslider">
           
               <?php echo "<a href=tshirts.php?id=$id><img src='$img'  height=400px width=300px ></a>"
@@ -138,20 +138,20 @@ https://www.tooplate.com/view/2114-pixie
               <div class="down-content">
               
                 <div class="categories">
-                  <h6>Brand: <span><?php echo"$brand" ?></span></h6>
+                  <h6>Brand: <span><h5><?php echo"$brand" ?></h5></span></h6>
                 </div>
                 <div class="categories">
-                  <h6>Size: <span><?php echo"$size" ?></span></h6>
+                  <h6>Size: <span><h5><?php echo"$size" ?><h5></span></h6>
                 </div>
                 <div class="categories">
-                  <h6>Material: <span><?php echo"$material" ?></span></h6>
+                  <h6>Material: <span><h5><?php echo"$material" ?><h5></span></h6>
                 </div>
                 <div class="categories">
-                  <h6>Price: <span><?php echo"$price" ?></span></h6>
+                  <h6>Price: <span><h5><?php echo"$price" ?><h5></span></h6>
                 </div>
                 <div class="share">
-                  <h6>Share: <span><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-twitter"></i></a>
-                   <?php $id=$_REQUEST['id']; echo "<a href=addtocart.php?id=$id&name=$name&price=$price&img_url=$img&brand=$brand>"; ?><i class="button"></i>
+                  <h6>Share: <span><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-twitter"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <?php echo "<a href=addtocart.php?id=$id&img_url=$img&pname=$name&Price=$price&Brand=$brand type=submit class='btn btn-large btn-primary pull-right'style=color:white;> Add to Cart </a>";?>
                   
                 </div>
                 
@@ -197,7 +197,7 @@ https://www.tooplate.com/view/2114-pixie
             }
           }
           catch (PDOException $e) {
-            die("Could not connect to the database $dbname :" . $e->getMessage());
+            die("Could not connect to the database $dbname :".$e->getMessage());
         }
            ?>
              

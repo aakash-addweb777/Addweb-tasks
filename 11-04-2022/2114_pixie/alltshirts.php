@@ -54,10 +54,10 @@ https://www.tooplate.com/view/2114-pixie
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
+              <a class="nav-link" href="wishlist.php">Wishlist</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact Us</a>
+              <a class="nav-link" href="addcart.php">Your Cart</a>
             </li>
           </ul>
         </div>
@@ -101,12 +101,14 @@ https://www.tooplate.com/view/2114-pixie
               $name=$row["name"];
               $id=$row["Tid"];
               $price=$row["Price"];
+              $brand=$row["Brand"];
+              $color=$row["Color"];
             ?>
             <div  class="item new col-md-4">
              
                 <div class=featured-item>
                 <?php echo "<a href=tshirts.php?id=$id><img src='$img'  height=400px width=300px ></a>
-                  <a href=tshirts.php?id=$id><h4> $name </h4></a>
+                  <a href=tshirts.php?id=$id><h4>$brand $color $name </h4></a>
                   <a href=tshirts.php?id=$id><h6>Rs $price</h6></a>"
                 ?>
                 </div>
